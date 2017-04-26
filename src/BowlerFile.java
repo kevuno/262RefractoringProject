@@ -24,7 +24,7 @@ import java.io.*;
 
 class BowlerFile {
 
-	/** The location of the bowelr database */
+	/** The location of the bowler database */
 	private static String BOWLER_DAT = "BOWLERS.DAT";
 
     /**
