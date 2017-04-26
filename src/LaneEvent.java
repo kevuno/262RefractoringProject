@@ -28,7 +28,6 @@ import java.util.HashMap;
 public class LaneEvent {
 
 	private Party p;
-	int frame;
 	int ball;
 	Bowler bowler;
 	int[][] cumulScore;
@@ -61,18 +60,9 @@ public class LaneEvent {
 	public HashMap getScore( ) {
 		return score;
 	}
-
-
-	public int[] getCurScores(){ 
-		return curScores;
-	}
 	
 	public int getIndex() {
 		return index;
-	}
-
-	public int getFrame( ) {
-		return frame;
 	}
 
 	public int getBall( ) {

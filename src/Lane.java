@@ -541,14 +541,6 @@ public class Lane extends Thread implements PinsetterObserver {
 	public boolean isPartyAssigned() {
 		return partyAssigned;
 	}
-	
-	/** isGameFinished
-	 * 
-	 * @return true if the game is done, false otherwise
-	 */
-	public boolean isGameFinished() {
-		return gameFinished;
-	}
 
 	/** subscribe
 	 * 
@@ -559,17 +551,6 @@ public class Lane extends Thread implements PinsetterObserver {
 
 	public void subscribe( LaneObserver adding ) {
 		subscribers.add( adding );
-	}
-
-	/** unsubscribe
-	 * 
-	 * Method that unsubscribes an observer from this object
-	 * 
-	 * @param removing	The observer to be removed
-	 */
-	
-	public void unsubscribe( LaneObserver removing ) {
-		subscribers.remove( removing );
 	}
 
 	/** publish

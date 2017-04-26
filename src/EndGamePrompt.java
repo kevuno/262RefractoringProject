@@ -18,8 +18,6 @@ public class EndGamePrompt implements ActionListener {
 
 	private int result;
 
-	private String selectedNick, selectedMember;
-
 	public EndGamePrompt( String partyName ) {
 
 		result =0;
