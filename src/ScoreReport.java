@@ -1,6 +1,6 @@
 /**
  * 
- * SMTP implementation based on code by Réal Gagnon mailto:real@rgagnon.com
+ * SMTP implementation based on code by Rï¿½al Gagnon mailto:real@rgagnon.com
  * 
  */
 
@@ -63,7 +63,7 @@ public class ScoreReport {
 			String boundary = "DataSeparatorString";
 
 			// here you are supposed to send your username
-			sendln(in, out, "HELO world");
+			sendln(in, out, "HELLO world");
 			sendln(in, out, "MAIL FROM: <abc1234@rit.edu>");
 			sendln(in, out, "RCPT TO: <" + recipient + ">");
 			sendln(in, out, "DATA");

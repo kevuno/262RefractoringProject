@@ -30,7 +30,7 @@ class BowlerFile {
     /**
      * Retrieves bowler information from the database and returns a Bowler objects with populated fields.
      *
-     * @param nickName	the nickName of the bolwer to retrieve
+     * @param nickName	the nickName of the bowler to retrieve
      *
      * @return a Bowler object
      * 

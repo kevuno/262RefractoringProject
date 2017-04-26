@@ -21,7 +21,7 @@ public class ControlDeskEvent {
 	private Vector partyQueue;
 
     /**
-     * Contstructor for the ControlDeskEvent
+     * Constructor for the ControlDeskEvent
      *
      * @param partyQueue	a Vector of Strings containing the names of the parties in the wait queue
      *

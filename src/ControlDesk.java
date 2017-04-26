@@ -60,7 +60,7 @@ class ControlDesk extends Thread {
     /**
      * Constructor for the ControlDesk class
      *
-     * @param numlanes	the numbler of lanes to be represented
+     * @param numLanes	the number of lanes to be represented
      *
      */
 
@@ -148,7 +148,7 @@ class ControlDesk extends Thread {
 	}
 
     /**
-     * Creates a party from a Vector of nickNAmes and adds them to the wait queue.
+     * Creates a party from a Vector of nickNames and adds them to the wait queue.
      *
      * @param partyNicks	A Vector of NickNames
      *
@@ -168,7 +168,7 @@ class ControlDesk extends Thread {
     /**
      * Returns a Vector of party names to be displayed in the GUI representation of the wait queue.
 	 *
-     * @return a Vecotr of Strings
+     * @return a Vector of Strings
      *
      */
 
