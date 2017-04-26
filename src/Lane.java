@@ -213,7 +213,8 @@ public class Lane extends Thread implements PinsetterObserver {
 						try{
 							Calendar calendar = new GregorianCalendar();
 							String dateString = "" + calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE) + " " + calendar.get(Calendar.MONTH) + "/" + calendar.get(Calendar.DAY_OF_WEEK) + "/" + calendar.get(Calendar.YEAR);
-							ScoreHistoryFile.addScore(currentThrower.getNick(), dateString, new Integer(cumulScores[bowlIndex][9]).toString());
+							Integer integer = cumulScores[bowlIndex][9];
+							ScoreHistoryFile.addScore(currentThrower.getNick(), dateString, integer.toString());
 						} catch (Exception e) {System.err.println("Exception in addScore. "+ e );} 
 					}
 
@@ -303,7 +304,7 @@ public class Lane extends Thread implements PinsetterObserver {
 						}
 					}
 				
-					if ((pe.totalPinsDown() != 10) && (pe.getThrowNumber() == 2 && tenthFrameStrike == false)) {
+					if ((pe.totalPinsDown() != 10) && (pe.getThrowNumber() == 2 && !tenthFrameStrike)) {
 						canThrowAgain = false;
 						//publish( lanePublish() );
 					}
@@ -413,8 +414,7 @@ public class Lane extends Thread implements PinsetterObserver {
 	 * @return		The new lane event
 	 */
 	private LaneEvent lanePublish(  ) {
-		LaneEvent laneEvent = new LaneEvent(party, bowlIndex, currentThrower, cumulScores, scores, frameNumber+1, curScores, ball, gameIsHalted);
-		return laneEvent;
+		return new LaneEvent(party, bowlIndex, currentThrower, cumulScores, scores, frameNumber+1, curScores, ball, gameIsHalted);
 	}
 
 	/** getScore()

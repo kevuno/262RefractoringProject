@@ -71,10 +71,10 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
 		partyPanel.setBorder(new TitledBorder("Your Party"));
 
 		party = new Vector();
-		Vector empty = new Vector();
+		Vector<String> empty = new Vector<>();
 		empty.add("(Empty)");
 
-		partyList = new JList(empty);
+		partyList = new JList<>(empty);
 		partyList.setFixedCellWidth(120);
 		partyList.setVisibleRowCount(5);
 		partyList.addListSelectionListener(this);
