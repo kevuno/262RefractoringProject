@@ -96,7 +96,7 @@ public class ScoreReport {
 			try {
 				job.print();
 			} catch (PrinterException e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 
