@@ -199,5 +199,5 @@ public class Pinsetter {
 		subscribers.add(subscriber);
 	}
 
-};
+}
 
