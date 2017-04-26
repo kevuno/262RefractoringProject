@@ -3,10 +3,11 @@
  */
 
 import java.awt.*;
-import java.awt.print.*;
-import java.awt.geom.*;
-import java.awt.font.*;
-import java.text.*;
+import java.awt.font.FontRenderContext;
+import java.awt.font.TextLayout;
+import java.awt.geom.Point2D;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
 
 public class PrintableText implements Printable {
 	String text;

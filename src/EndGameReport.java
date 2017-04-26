@@ -6,14 +6,15 @@
  * Window>Preferences>Java>Code Generation.
  */
 
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.event.*;
-
-import java.util.*;
-import java.text.*;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Iterator;
+import java.util.Vector;
 
 public class EndGameReport implements ActionListener, ListSelectionListener {
 

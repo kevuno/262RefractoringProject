@@ -70,8 +70,8 @@
  *
  */
 
-import java.util.*;
-import java.lang.Boolean;
+import java.util.Random;
+import java.util.Vector;
 
 public class Pinsetter {
 

@@ -6,8 +6,8 @@
  * Window>Preferences>Java>Code Generation.
  */
 
-import java.util.*;
 import java.io.*;
+import java.util.Vector;
 
 public class ScoreHistoryFile {
 

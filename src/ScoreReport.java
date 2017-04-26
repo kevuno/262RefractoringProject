@@ -5,12 +5,15 @@
  */
 
 
-import java.io.*;
-import java.util.Vector;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
 import java.util.Iterator;
-import java.net.*;
-import java.awt.*;
-import java.awt.print.*;
+import java.util.Vector;
 
 public class ScoreReport {
 
