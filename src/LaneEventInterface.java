@@ -1,15 +1,15 @@
 import java.util.HashMap;
 
-public interface LaneEventInterface extends java.rmi.Remote {
-	public int getFrameNum( ) throws java.rmi.RemoteException;
-	public HashMap getScore( ) throws java.rmi.RemoteException;
-	public int[] getCurScores( ) throws java.rmi.RemoteException;
-	public int getIndex() throws java.rmi.RemoteException;
-	public int getFrame() throws java.rmi.RemoteException;
-	public int getBall() throws java.rmi.RemoteException;
-	public int[][] getCumulScore() throws java.rmi.RemoteException;
-	public Party getParty() throws java.rmi.RemoteException;
-	public Bowler getBowler() throws java.rmi.RemoteException;
+ public interface LaneEventInterface extends java.rmi.Remote {
+	 int getFrameNum( ) throws java.rmi.RemoteException;
+	 HashMap getScore( ) throws java.rmi.RemoteException;
+	 int[] getCurScores( ) throws java.rmi.RemoteException;
+	 int getIndex() throws java.rmi.RemoteException;
+	 int getFrame() throws java.rmi.RemoteException;
+	 int getBall() throws java.rmi.RemoteException;
+	 int[][] getCumulScore() throws java.rmi.RemoteException;
+	 Party getParty() throws java.rmi.RemoteException;
+	 Bowler getBowler() throws java.rmi.RemoteException;
 
 }
 
