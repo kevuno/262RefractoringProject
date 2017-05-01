@@ -268,7 +268,6 @@ public class Lane extends Thread implements PinsetterObserver {
 								sr.sendPrintout();
 							}
 						}
-
 					}
 				}
 			}
