@@ -214,7 +214,7 @@ public class Lane extends Thread implements PinsetterObserver {
 							Calendar calendar = new GregorianCalendar();
 							String dateString = "" + calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE) + " " + calendar.get(Calendar.MONTH) + "/" + calendar.get(Calendar.DAY_OF_WEEK) + "/" + calendar.get(Calendar.YEAR);
 							Integer integer = cumulScores[bowlIndex][9];
-							ScoreHistoryFile.addScore(currentThrower.getNick(), dateString, integer.toString());
+							ScoreHistoryFile.addScore(currentThrower.getNickName(), dateString, integer.toString());
 						} catch (Exception e) {System.err.println("Exception in addScore. "+ e );} 
 					}
 
@@ -263,8 +263,8 @@ public class Lane extends Thread implements PinsetterObserver {
 						sr.sendEmail(thisBowler.getEmail());
 						Iterator printIt = printVector.iterator();
 						while (printIt.hasNext()){
-							if (thisBowler.getNick() == printIt.next()){
-								System.out.println("Printing " + thisBowler.getNick());
+							if (thisBowler.getNickName() == printIt.next()){
+								System.out.println("Printing " + thisBowler.getNickName());
 								sr.sendPrintout();
 							}
 						}
