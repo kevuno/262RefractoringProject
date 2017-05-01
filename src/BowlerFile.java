@@ -19,18 +19,18 @@
  *
  */
 
-import java.util.*;
 import java.io.*;
+import java.util.Vector;
 
 class BowlerFile {
 
-	/** The location of the bowelr database */
+	/** The location of the bowler database */
 	private static String BOWLER_DAT = "BOWLERS.DAT";
 
     /**
      * Retrieves bowler information from the database and returns a Bowler objects with populated fields.
      *
-     * @param nickName	the nickName of the bolwer to retrieve
+     * @param nickName	the nickName of the bowler to retrieve
      *
      * @return a Bowler object
      * 

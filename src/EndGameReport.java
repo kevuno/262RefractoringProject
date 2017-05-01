@@ -6,21 +6,21 @@
  * Window>Preferences>Java>Code Generation.
  */
 
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.event.*;
-
-import java.util.*;
-import java.text.*;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Iterator;
+import java.util.Vector;
 
 public class EndGameReport implements ActionListener, ListSelectionListener {
 
 	private JFrame win;
 	private JButton printButton, finished;
 	private JList memberList;
-	private Vector myVector;
 	private Vector retVal;
 
 	private int result;
@@ -93,7 +93,7 @@ public class EndGameReport implements ActionListener, ListSelectionListener {
 		win.setLocation(
 			((screenSize.width) / 2) - ((win.getSize().width) / 2),
 			((screenSize.height) / 2) - ((win.getSize().height) / 2));
-		win.show();
+		win.setVisible(true);
 
 	}
 
@@ -103,7 +103,7 @@ public class EndGameReport implements ActionListener, ListSelectionListener {
 			retVal.add(selectedMember);
 		}
 		if (e.getSource().equals(finished)) {		
-			win.hide();
+			win.setVisible(false);
 			result = 1;
 		}
 
@@ -123,10 +123,6 @@ public class EndGameReport implements ActionListener, ListSelectionListener {
 			}
 		}
 		return retVal;	
-	}
-	
-	public void destroy() {
-		win.hide();
 	}
 
 	public static void main( String args[] ) {

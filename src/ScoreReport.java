@@ -1,16 +1,19 @@
 /**
  * 
- * SMTP implementation based on code by Réal Gagnon mailto:real@rgagnon.com
+ * SMTP implementation based on code by Rï¿½al Gagnon mailto:real@rgagnon.com
  * 
  */
 
 
-import java.io.*;
-import java.util.Vector;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
 import java.util.Iterator;
-import java.net.*;
-import java.awt.*;
-import java.awt.print.*;
+import java.util.Vector;
 
 public class ScoreReport {
 
@@ -63,7 +66,7 @@ public class ScoreReport {
 			String boundary = "DataSeparatorString";
 
 			// here you are supposed to send your username
-			sendln(in, out, "HELO world");
+			sendln(in, out, "HELLO world");
 			sendln(in, out, "MAIL FROM: <abc1234@rit.edu>");
 			sendln(in, out, "RCPT TO: <" + recipient + ">");
 			sendln(in, out, "DATA");
@@ -93,7 +96,7 @@ public class ScoreReport {
 			try {
 				job.print();
 			} catch (PrinterException e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 

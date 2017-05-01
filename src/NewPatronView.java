@@ -16,18 +16,13 @@
  *
  */
 
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.event.*;
-
-import java.util.*;
-import java.text.*;
+import javax.swing.border.TitledBorder;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class NewPatronView implements ActionListener {
-
-	private int maxSize;
 
 	private JFrame win;
 	private JButton abort, finished;
@@ -35,15 +30,11 @@ public class NewPatronView implements ActionListener {
 	private JTextField nickField, fullField, emailField;
 	private String nick, full, email;
 
-	private boolean done;
-
-	private String selectedNick, selectedMember;
 	private AddPartyView addParty;
 
 	public NewPatronView(AddPartyView v) {
 
-		addParty=v;	
-		done = false;
+		addParty=v;
 
 		win = new JFrame("Add Patron");
 		win.getContentPane().setLayout(new BorderLayout());
@@ -116,29 +107,23 @@ public class NewPatronView implements ActionListener {
 		win.setLocation(
 			((screenSize.width) / 2) - ((win.getSize().width) / 2),
 			((screenSize.height) / 2) - ((win.getSize().height) / 2));
-		win.show();
+		win.setVisible(true);
 
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(abort)) {
-			done = true;
-			win.hide();
+			win.setVisible(false);
 		}
 
 		if (e.getSource().equals(finished)) {
 			nick = nickField.getText();
 			full = fullField.getText();
 			email = emailField.getText();
-			done = true;
 			addParty.updateNewPatron( this );
-			win.hide();
+			win.setVisible(false);
 		}
 
-	}
-
-	public boolean done() {
-		return done;
 	}
 
 	public String getNick() {

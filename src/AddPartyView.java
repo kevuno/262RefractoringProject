@@ -25,14 +25,14 @@
  *
  */
 
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.event.*;
-
-import java.util.*;
-import java.text.*;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Vector;
 
 /**
  * Constructor for GUI used to Add Parties to the waiting party queue.
@@ -47,7 +47,6 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
 	private JButton addPatron, newPatron, remPatron, finished;
 	private JList partyList, allBowlers;
 	private Vector party, bowlerdb;
-	private Integer lock;
 
 	private ControlDeskView controlDesk;
 
@@ -71,10 +70,10 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
 		partyPanel.setBorder(new TitledBorder("Your Party"));
 
 		party = new Vector();
-		Vector empty = new Vector();
+		Vector<String> empty = new Vector<>();
 		empty.add("(Empty)");
 
-		partyList = new JList(empty);
+		partyList = new JList<>(empty);
 		partyList.setFixedCellWidth(120);
 		partyList.setVisibleRowCount(5);
 		partyList.addListSelectionListener(this);
@@ -151,7 +150,7 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
 		win.setLocation(
 			((screenSize.width) / 2) - ((win.getSize().width) / 2),
 			((screenSize.height) / 2) - ((win.getSize().height) / 2));
-		win.show();
+		win.setVisible(true);
 
 	}
 
@@ -179,7 +178,7 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
 			if ( party != null && party.size() > 0) {
 				controlDesk.updateAddParty( this );
 			}
-			win.hide();
+			win.setVisible(false);
 		}
 
 	}
@@ -198,14 +197,6 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
 			selectedMember =
 				((String) ((JList) e.getSource()).getSelectedValue());
 		}
-	}
-
-/**
- * Accessor for Party
- */
-
-	public Vector getNames() {
-		return party;
 	}
 
 /**

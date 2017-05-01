@@ -6,17 +6,16 @@
  * Window>Preferences>Java>Code Generation.
  */
 
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.event.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class LaneStatusView implements ActionListener, LaneObserver, PinsetterObserver {
 
 	private JPanel jp;
 
-	private JLabel curBowler, foul, pinsDown;
+	private JLabel curBowler, pinsDown;
 	private JButton viewLane;
 	private JButton viewPinSetter, maintenance;
 
@@ -49,7 +48,6 @@ public class LaneStatusView implements ActionListener, LaneObserver, PinsetterOb
 		JLabel cLabel = new JLabel( "Now Bowling: " );
 		curBowler = new JLabel( "(no one)" );
 		JLabel fLabel = new JLabel( "Foul: " );
-		foul = new JLabel( " " );
 		JLabel pdLabel = new JLabel( "Pins Down: " );
 		pinsDown = new JLabel( "0" );
 
@@ -104,10 +102,10 @@ public class LaneStatusView implements ActionListener, LaneObserver, PinsetterOb
 	public void actionPerformed( ActionEvent e ) {
 		if ( lane.isPartyAssigned() ) { 
 			if (e.getSource().equals(viewPinSetter)) {
-				if ( psShowing == false ) {
+				if ( !psShowing ) {
 					psv.show();
 					psShowing=true;
-				} else if ( psShowing == true ) {
+				} else if ( psShowing ) {
 					psv.hide();
 					psShowing=false;
 				}
@@ -115,10 +113,10 @@ public class LaneStatusView implements ActionListener, LaneObserver, PinsetterOb
 		}
 		if (e.getSource().equals(viewLane)) {
 			if ( lane.isPartyAssigned() ) { 
-				if ( laneShowing == false ) {
+				if ( !laneShowing ) {
 					lv.show();
 					laneShowing=true;
-				} else if ( laneShowing == true ) {
+				} else if ( laneShowing ) {
 					lv.hide();
 					laneShowing=false;
 				}
@@ -133,11 +131,11 @@ public class LaneStatusView implements ActionListener, LaneObserver, PinsetterOb
 	}
 
 	public void receiveLaneEvent(LaneEvent le) {
-		curBowler.setText( ( (Bowler)le.getBowler()).getNickName() );
+		curBowler.setText( ( le.getBowler()).getNickName() );
 		if ( le.isMechanicalProblem() ) {
 			maintenance.setBackground( Color.RED );
 		}	
-		if ( lane.isPartyAssigned() == false ) {
+		if ( !lane.isPartyAssigned() ) {
 			viewLane.setEnabled( false );
 			viewPinSetter.setEnabled( false );
 		} else {

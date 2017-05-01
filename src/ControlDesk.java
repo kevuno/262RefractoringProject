@@ -40,8 +40,11 @@
  *
  */
 
-import java.util.*;
-import java.io.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Vector;
 
 class ControlDesk extends Thread {
 
@@ -60,7 +63,7 @@ class ControlDesk extends Thread {
     /**
      * Constructor for the ControlDesk class
      *
-     * @param numlanes	the numbler of lanes to be represented
+     * @param numLanes	the number of lanes to be represented
      *
      */
 
@@ -132,7 +135,7 @@ class ControlDesk extends Thread {
 		while (it.hasNext() && partyQueue.hasMoreElements()) {
 			Lane curLane = (Lane) it.next();
 
-			if (curLane.isPartyAssigned() == false) {
+			if (!curLane.isPartyAssigned()) {
 				System.out.println("ok... assigning this party");
 				curLane.assignParty(((Party) partyQueue.next()));
 			}
@@ -148,7 +151,7 @@ class ControlDesk extends Thread {
 	}
 
     /**
-     * Creates a party from a Vector of nickNAmes and adds them to the wait queue.
+     * Creates a party from a Vector of nickNames and adds them to the wait queue.
      *
      * @param partyNicks	A Vector of NickNames
      *
@@ -168,15 +171,15 @@ class ControlDesk extends Thread {
     /**
      * Returns a Vector of party names to be displayed in the GUI representation of the wait queue.
 	 *
-     * @return a Vecotr of Strings
+     * @return a Vector of Strings
      *
      */
 
 	public Vector getPartyQueue() {
 		Vector displayPartyQueue = new Vector();
-		for ( int i=0; i < ( (Vector)partyQueue.asVector()).size(); i++ ) {
+		for ( int i=0; i < ( partyQueue.asVector()).size(); i++ ) {
 			String nextParty =
-				((Bowler) ((Vector) ((Party) partyQueue.asVector().get( i ) ).getMembers())
+				((Bowler) (((Party) partyQueue.asVector().get( i ) ).getMembers())
 					.get(0))
 					.getNickName() + "'s Party";
 			displayPartyQueue.addElement(nextParty);

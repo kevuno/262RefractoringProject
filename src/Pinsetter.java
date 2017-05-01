@@ -70,8 +70,8 @@
  *
  */
 
-import java.util.*;
-import java.lang.Boolean;
+import java.util.Random;
+import java.util.Vector;
 
 public class Pinsetter {
 
@@ -96,9 +96,9 @@ public class Pinsetter {
 	 * Sends pinsetter events to all subscribers
 	 * 
 	 * @pre none
-	 * @post all subscribers have recieved pinsetter event with updated state
+	 * @post all subscribers have received pinsetter event with updated state
 	 * */
-	private void sendEvent(int jdpins) {	// send events when our state is changd
+	private void sendEvent(int jdpins) {	// send events when our state is changed
 		for (int i=0; i < subscribers.size(); i++) {
 			((PinsetterObserver)subscribers.get(i)).receivePinsetterEvent(
 				new PinsetterEvent(pins, foul, throwNumber, jdpins));
@@ -123,7 +123,7 @@ public class Pinsetter {
 
 	/** ballThrown()
 	 * 
-	 * Called to simulate a ball thrown comming in contact with the pinsetter
+	 * Called to simulate a ball thrown coming in contact with the pinsetter
 	 * 
 	 * @pre none
 	 * @post pins may have been knocked down and the thrownumber has been incremented
@@ -193,11 +193,11 @@ public class Pinsetter {
 	 * subscribe objects to send events to
 	 * 
 	 * @pre none
-	 * @post the subscriber object will recieve events when their generated
+	 * @post the subscriber object will receive events when their generated
 	 */
 	public void subscribe(PinsetterObserver subscriber) {
 		subscribers.add(subscriber);
 	}
 
-};
+}
 

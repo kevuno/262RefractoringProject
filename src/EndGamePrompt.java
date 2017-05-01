@@ -6,14 +6,10 @@
  * Window>Preferences>Java>Code Generation.
  */
 
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.event.*;
-
-import java.util.*;
-import java.text.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class EndGamePrompt implements ActionListener {
 
@@ -21,8 +17,6 @@ public class EndGamePrompt implements ActionListener {
 	private JButton yesButton, noButton;
 
 	private int result;
-
-	private String selectedNick, selectedMember;
 
 	public EndGamePrompt( String partyName ) {
 
@@ -78,7 +72,7 @@ public class EndGamePrompt implements ActionListener {
 		win.setLocation(
 			((screenSize.width) / 2) - ((win.getSize().width) / 2),
 			((screenSize.height) / 2) - ((win.getSize().height) / 2));
-		win.show();
+		win.setVisible(true);
 
 	}
 
@@ -103,8 +97,8 @@ public class EndGamePrompt implements ActionListener {
 		return result;	
 	}
 	
-	public void distroy() {
-		win.hide();
+	public void destroy() {
+		win.setVisible(false);
 	}
 	
 }

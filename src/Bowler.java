@@ -52,7 +52,7 @@ public class Bowler {
 	public String getEmail ( ) {
 		return email;	
 	}
-	
+
 	public boolean equals ( Bowler b) {
 		boolean retval = true;
 		if ( !(nickName.equals(b.getNickName())) ) {
@@ -60,7 +60,7 @@ public class Bowler {
 		}
 		if ( !(fullName.equals(b.getFullName())) ) {
 				retval = false;
-		}	
+		}
 		if ( !(email.equals(b.getEmail())) ) {
 				retval = false;
 		}
