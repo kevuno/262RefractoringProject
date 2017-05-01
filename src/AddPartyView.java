@@ -45,7 +45,8 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
   private JFrame win;
   private JButton addPatron, newPatron, remPatron, finished;
   private JList partyList, allBowlers;
-  private Vector party, bowlerdb;
+  private Vector<String> party;
+  private Vector bowlerdb;
 
   private ControlDeskView controlDesk;
 
@@ -68,7 +69,7 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
     partyPanel.setLayout(new FlowLayout());
     partyPanel.setBorder(new TitledBorder("Your Party"));
 
-    party = new Vector();
+    party = new Vector<>();
     Vector<String> empty = new Vector<>();
     empty.add("(Empty)");
 

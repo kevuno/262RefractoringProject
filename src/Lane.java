@@ -135,8 +135,8 @@ import java.util.*;
 public class Lane extends Thread implements PinsetterObserver {
   private Party party;
   private Pinsetter setter;
-  private HashMap scores;
-  private Vector subscribers;
+  private HashMap<Object, int[]> scores;
+  private Vector<LaneObserver> subscribers;
 
   private boolean gameIsHalted;
 
@@ -167,8 +167,8 @@ public class Lane extends Thread implements PinsetterObserver {
    */
   public Lane() {
     setter = new Pinsetter();
-    scores = new HashMap();
-    subscribers = new Vector();
+    scores = new HashMap<>();
+    subscribers = new Vector<>();
 
     gameIsHalted = false;
     partyAssigned = false;
