@@ -1,5 +1,5 @@
-/*
- *  constructs a prototype Lane View
+package bowling;/*
+ *  constructs a prototype bowling.Lane View
  *
  */
 
@@ -31,7 +31,7 @@ public class LaneView implements LaneObserver, ActionListener {
     this.lane = lane;
 
     initDone = true;
-    frame = new JFrame("Lane " + laneNum + ":");
+    frame = new JFrame("bowling.Lane " + laneNum + ":");
     cpanel = frame.getContentPane();
     cpanel.setLayout(new BorderLayout());
 

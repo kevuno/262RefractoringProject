@@ -1,15 +1,15 @@
-/* ControlDesk.java
+package bowling;/* bowling.ControlDesk.java
  *
  *  Version:
  *  		$Id$
  * 
  *  Revisions:
- * 		$Log: ControlDesk.java,v $
+ * 		$Log: bowling.ControlDesk.java,v $
  * 		Revision 1.13  2003/02/02 23:26:32  ???
- * 		ControlDesk now runs its own thread and polls for free lanes to assign queue members to
+ * 		bowling.ControlDesk now runs its own thread and polls for free lanes to assign queue members to
  * 		
  * 		Revision 1.12  2003/02/02 20:46:13  ???
- * 		Added " 's Party" to party names.
+ * 		Added " 's bowling.Party" to party names.
  * 		
  * 		Revision 1.11  2003/02/02 20:43:25  ???
  * 		misc cleanup
@@ -24,10 +24,10 @@
  * 		Updated comments to match javadoc format.
  * 		
  * 		Revision 1.7  2003/02/02 16:29:52  ???
- * 		Added ControlDeskEvent and ControlDeskObserver. Updated Queue to allow access to Vector so that contents could be viewed without destroying. Implemented observer model for most of ControlDesk.
+ * 		Added bowling.ControlDeskEvent and bowling.ControlDeskObserver. Updated bowling.Queue to allow access to Vector so that contents could be viewed without destroying. Implemented observer model for most of bowling.ControlDesk.
  * 		
  * 		Revision 1.6  2003/02/02 06:09:39  ???
- * 		Updated many classes to support the ControlDeskView.
+ * 		Updated many classes to support the bowling.ControlDeskView.
  * 		
  * 		Revision 1.5  2003/01/26 23:16:10  ???
  * 		Improved thread handeling in lane/controldesk
@@ -60,7 +60,7 @@ class ControlDesk extends Thread {
   private Vector subscribers;
 
   /**
-   * Constructor for the ControlDesk class
+   * Constructor for the bowling.ControlDesk class
    *
    * @param numLanes  the number of lanes to be represented
    *
@@ -81,7 +81,7 @@ class ControlDesk extends Thread {
   }
 
   /**
-   * Main loop for ControlDesk's thread
+   * Main loop for bowling.ControlDesk's thread
    *
    */
   public void run() {
@@ -98,11 +98,11 @@ class ControlDesk extends Thread {
 
 
   /**
-   * Retrieves a matching Bowler from the bowler database.
+   * Retrieves a matching bowling.Bowler from the bowler database.
    *
-   * @param nickName  The NickName of the Bowler
+   * @param nickName  The NickName of the bowling.Bowler
    *
-   * @return a Bowler object.
+   * @return a bowling.Bowler object.
    *
    */
 
@@ -180,14 +180,14 @@ class ControlDesk extends Thread {
       String nextParty =
           ((Bowler) (((Party) partyQueue.asVector().get(i)).getMembers())
               .get(0))
-              .getNickName() + "'s Party";
+              .getNickName() + "'s bowling.Party";
       displayPartyQueue.addElement(nextParty);
     }
     return displayPartyQueue;
   }
 
   /**
-   * Accessor for the number of lanes represented by the ControlDesk
+   * Accessor for the number of lanes represented by the bowling.ControlDesk
    *
    * @return an int containing the number of lanes represented
    *
@@ -200,7 +200,7 @@ class ControlDesk extends Thread {
   /**
    * Allows objects to subscribe as observers
    *
-   * @param adding  the ControlDeskObserver that will be subscribed
+   * @param adding  the bowling.ControlDeskObserver that will be subscribed
    *
    */
 
@@ -211,7 +211,7 @@ class ControlDesk extends Thread {
   /**
    * Broadcast an event to subscribing objects.
    *
-   * @param event  the ControlDeskEvent to broadcast
+   * @param event  the bowling.ControlDeskEvent to broadcast
    *
    */
 

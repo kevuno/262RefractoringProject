@@ -1,4 +1,4 @@
-/* ControlDeskObserver.java
+package bowling;/* bowling.ControlDeskObserver.java
  *
  *  Version
  *  $Id$

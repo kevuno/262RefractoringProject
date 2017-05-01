@@ -1,4 +1,4 @@
-/**
+package bowling; /**
  * SMTP implementation based on code by R�al Gagnon mailto:real@rgagnon.com
  */
 
@@ -30,7 +30,7 @@ public class ScoreReport {
     Iterator scoreIt = v.iterator();
 
     content = "";
-    content += "--Lucky Strike Bowling Alley Score Report--\n";
+    content += "--Lucky Strike Bowling bowling.Alley bowling.Score Report--\n";
     content += "\n";
     content += "Report for " + full + ", aka \"" + nick + "\":\n";
     content += "\n";
@@ -69,7 +69,7 @@ public class ScoreReport {
       sendln(in, out, "MAIL FROM: <abc1234@rit.edu>");
       sendln(in, out, "RCPT TO: <" + recipient + ">");
       sendln(in, out, "DATA");
-      sendln(out, "Subject: Bowling Score Report ");
+      sendln(out, "Subject: Bowling bowling.Score Report ");
       sendln(out, "From: <Lucky Strikes Bowling Club>");
 
       sendln(out, "Content-Type: text/plain; charset=\"us-ascii\"\r\n");
