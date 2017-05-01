@@ -53,17 +53,14 @@ public class Bowler {
 		return email;	
 	}
 
-	public boolean equals ( Bowler b) {
-		boolean retval = true;
-		if ( !(nickName.equals(b.getNickName())) ) {
-				retval = false;
+	@Override
+	public boolean equals(Object other) {
+		if (other == null || !Bowler.class.isAssignableFrom(other.getClass())) {
+			return false;
 		}
-		if ( !(fullName.equals(b.getFullName())) ) {
-				retval = false;
-		}
-		if ( !(email.equals(b.getEmail())) ) {
-				retval = false;
-		}
-		return retval;
+		final Bowler otherBowler = (Bowler) other;
+		return nickName.equals(otherBowler.getNickName())
+				&& fullName.equals(otherBowler.getFullName())
+				&& email.equals(otherBowler.getEmail());
 	}
 }
