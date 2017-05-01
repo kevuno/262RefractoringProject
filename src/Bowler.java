@@ -18,41 +18,41 @@
  */
 
 /**
- *  Class that holds all bowler info
+ * Class that holds all bowler info
  */
 
 public class Bowler {
 
-	private String fullName;
-	private String nickName;
-	private String email;
+  private String fullName;
+  private String nickName;
+  private String email;
 
-	public Bowler(String nick, String full, String mail) {
-		nickName = nick;
-		fullName = full;
-		email = mail;
-	}
+  public Bowler(String nick, String full, String mail) {
+    nickName = nick;
+    fullName = full;
+    email = mail;
+  }
 
-	public String getNickName() {
-		return nickName;
-	}
+  public String getNickName() {
+    return nickName;
+  }
 
-	public String getFullName() {
-		return fullName;
-	}
+  public String getFullName() {
+    return fullName;
+  }
 
-	public String getEmail() {
-		return email;	
-	}
+  public String getEmail() {
+    return email;
+  }
 
-	@Override
-	public boolean equals(Object other) {
-		if (other == null || !Bowler.class.isAssignableFrom(other.getClass())) {
-			return false;
-		}
-		final Bowler otherBowler = (Bowler) other;
-		return nickName.equals(otherBowler.getNickName())
-				&& fullName.equals(otherBowler.getFullName())
-				&& email.equals(otherBowler.getEmail());
-	}
+  @Override
+  public boolean equals(Object other) {
+    if (other == null || !Bowler.class.isAssignableFrom(other.getClass())) {
+      return false;
+    }
+    final Bowler otherBowler = (Bowler) other;
+    return nickName.equals(otherBowler.getNickName())
+        && fullName.equals(otherBowler.getFullName())
+        && email.equals(otherBowler.getEmail());
+  }
 }

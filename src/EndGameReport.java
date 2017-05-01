@@ -1,5 +1,4 @@
 /**
- *
  * To change this generated comment edit the template variable "typecomment":
  * Window>Preferences>Java>Templates.
  * To enable and disable the creation of type comments go to
@@ -18,121 +17,121 @@ import java.util.Vector;
 
 public class EndGameReport implements ActionListener, ListSelectionListener {
 
-	private JFrame win;
-	private JButton printButton, finished;
-	private Vector retVal;
+  private JFrame win;
+  private JButton printButton, finished;
+  private Vector retVal;
 
-	private int result;
+  private int result;
 
-	private String selectedMember;
+  private String selectedMember;
 
-	public EndGameReport( String partyName, Party party ) {
-	
-		result =0;
-		retVal = new Vector();
-		win = new JFrame("End Game Report for " + partyName + "?" );
-		win.getContentPane().setLayout(new BorderLayout());
-		((JPanel) win.getContentPane()).setOpaque(false);
+  public EndGameReport(String partyName, Party party) {
 
-		JPanel colPanel = new JPanel();
-		colPanel.setLayout(new GridLayout( 1, 2 ));
+    result = 0;
+    retVal = new Vector();
+    win = new JFrame("End Game Report for " + partyName + "?");
+    win.getContentPane().setLayout(new BorderLayout());
+    ((JPanel) win.getContentPane()).setOpaque(false);
 
-		// Member Panel
-		JPanel partyPanel = new JPanel();
-		partyPanel.setLayout(new FlowLayout());
-		partyPanel.setBorder(new TitledBorder("Party Members"));
-		
-		Vector myVector = new Vector();
-		Iterator iter = (party.getMembers()).iterator();
-		while (iter.hasNext()){
-			myVector.add( ((Bowler)iter.next()).getNickName() );
-		}	
-		JList memberList = new JList(myVector);
-		memberList.setFixedCellWidth(120);
-		memberList.setVisibleRowCount(5);
-		memberList.addListSelectionListener(this);
-		JScrollPane partyPane = new JScrollPane(memberList);
-		//        partyPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		partyPanel.add(partyPane);
+    JPanel colPanel = new JPanel();
+    colPanel.setLayout(new GridLayout(1, 2));
 
-		partyPanel.add( memberList );
+    // Member Panel
+    JPanel partyPanel = new JPanel();
+    partyPanel.setLayout(new FlowLayout());
+    partyPanel.setBorder(new TitledBorder("Party Members"));
 
-		// Button Panel
-		// Button Panel
-		JPanel buttonPanel = new JPanel();
-		buttonPanel.setLayout(new GridLayout(2, 1));
+    Vector myVector = new Vector();
+    Iterator iter = (party.getMembers()).iterator();
+    while (iter.hasNext()) {
+      myVector.add(((Bowler) iter.next()).getNickName());
+    }
+    JList memberList = new JList(myVector);
+    memberList.setFixedCellWidth(120);
+    memberList.setVisibleRowCount(5);
+    memberList.addListSelectionListener(this);
+    JScrollPane partyPane = new JScrollPane(memberList);
+    //        partyPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+    partyPanel.add(partyPane);
 
-		Insets buttonMargin = new Insets(4, 4, 4, 4);
+    partyPanel.add(memberList);
 
-		printButton = new JButton("Print Report");
-		JPanel printButtonPanel = new JPanel();
-		printButtonPanel.setLayout(new FlowLayout());
-		printButton.addActionListener(this);
-		printButtonPanel.add(printButton);
+    // Button Panel
+    // Button Panel
+    JPanel buttonPanel = new JPanel();
+    buttonPanel.setLayout(new GridLayout(2, 1));
 
-		finished = new JButton("Finished");
-		JPanel finishedPanel = new JPanel();
-		finishedPanel.setLayout(new FlowLayout());
-		finished.addActionListener(this);
-		finishedPanel.add(finished);
+    Insets buttonMargin = new Insets(4, 4, 4, 4);
 
-		buttonPanel.add(printButton);
-		buttonPanel.add(finished);
+    printButton = new JButton("Print Report");
+    JPanel printButtonPanel = new JPanel();
+    printButtonPanel.setLayout(new FlowLayout());
+    printButton.addActionListener(this);
+    printButtonPanel.add(printButton);
 
-		// Clean up main panel
-		colPanel.add(partyPanel);
-		colPanel.add(buttonPanel);
+    finished = new JButton("Finished");
+    JPanel finishedPanel = new JPanel();
+    finishedPanel.setLayout(new FlowLayout());
+    finished.addActionListener(this);
+    finishedPanel.add(finished);
 
-		win.getContentPane().add("Center", colPanel);
+    buttonPanel.add(printButton);
+    buttonPanel.add(finished);
 
-		win.pack();
+    // Clean up main panel
+    colPanel.add(partyPanel);
+    colPanel.add(buttonPanel);
 
-		// Center Window on Screen
-		Dimension screenSize = (Toolkit.getDefaultToolkit()).getScreenSize();
-		win.setLocation(
-			((screenSize.width) / 2) - ((win.getSize().width) / 2),
-			((screenSize.height) / 2) - ((win.getSize().height) / 2));
-		win.setVisible(true);
+    win.getContentPane().add("Center", colPanel);
 
-	}
+    win.pack();
 
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource().equals(printButton)) {		
-			//Add selected to the vector.
-			retVal.add(selectedMember);
-		}
-		if (e.getSource().equals(finished)) {		
-			win.setVisible(false);
-			result = 1;
-		}
+    // Center Window on Screen
+    Dimension screenSize = (Toolkit.getDefaultToolkit()).getScreenSize();
+    win.setLocation(
+        ((screenSize.width) / 2) - ((win.getSize().width) / 2),
+        ((screenSize.height) / 2) - ((win.getSize().height) / 2));
+    win.setVisible(true);
 
-	}
+  }
 
-	public void valueChanged(ListSelectionEvent e) {
-		selectedMember =
-			((String) ((JList) e.getSource()).getSelectedValue());
-	}
+  public static void main(String args[]) {
+    Vector bowlers = new Vector();
+    for (int i = 0; i < 4; i++) {
+      bowlers.add(new Bowler("aaaaa", "aaaaa", "aaaaa"));
+    }
+    Party party = new Party(bowlers);
+    String partyName = "wank";
+    EndGameReport e = new EndGameReport(partyName, party);
+  }
 
-	public Vector getResult() {
-		while ( result == 0 ) {
-			try {
-				Thread.sleep(10);
-			} catch ( InterruptedException e ) {
-				System.err.println( "Interrupted" );
-			}
-		}
-		return retVal;	
-	}
+  public void actionPerformed(ActionEvent e) {
+    if (e.getSource().equals(printButton)) {
+      //Add selected to the vector.
+      retVal.add(selectedMember);
+    }
+    if (e.getSource().equals(finished)) {
+      win.setVisible(false);
+      result = 1;
+    }
 
-	public static void main( String args[] ) {
-		Vector bowlers = new Vector();
-		for ( int i=0; i<4; i++ ) {
-			bowlers.add( new Bowler( "aaaaa", "aaaaa", "aaaaa" ) );
-		}
-		Party party = new Party( bowlers );
-		String partyName="wank";
-		EndGameReport e = new EndGameReport( partyName, party );
-	}
-	
+  }
+
+  public void valueChanged(ListSelectionEvent e) {
+    selectedMember =
+        ((String) ((JList) e.getSource()).getSelectedValue());
+  }
+
+  public Vector getResult() {
+    while (result == 0) {
+      try {
+        Thread.sleep(10);
+      } catch (InterruptedException e) {
+        System.err.println("Interrupted");
+      }
+    }
+    return retVal;
+  }
+
 }
 
