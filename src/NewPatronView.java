@@ -106,7 +106,6 @@ public class NewPatronView implements ActionListener {
         ((screenSize.width) / 2) - ((win.getSize().width) / 2),
         ((screenSize.height) / 2) - ((win.getSize().height) / 2));
     win.setVisible(true);
-
   }
 
   public void actionPerformed(ActionEvent e) {
@@ -121,7 +120,6 @@ public class NewPatronView implements ActionListener {
       addParty.updateNewPatron(this);
       win.setVisible(false);
     }
-
   }
 
   public String getNick() {
@@ -135,5 +133,4 @@ public class NewPatronView implements ActionListener {
   public String getEmail() {
     return email;
   }
-
 }

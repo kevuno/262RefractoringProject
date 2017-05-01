@@ -72,7 +72,6 @@ public class EndGamePrompt implements ActionListener {
         ((screenSize.width) / 2) - ((win.getSize().width) / 2),
         ((screenSize.height) / 2) - ((win.getSize().height) / 2));
     win.setVisible(true);
-
   }
 
   public void actionPerformed(ActionEvent e) {
@@ -99,6 +98,4 @@ public class EndGamePrompt implements ActionListener {
   public void destroy() {
     win.setVisible(false);
   }
-
 }
-

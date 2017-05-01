@@ -92,7 +92,6 @@ public class EndGameReport implements ActionListener, ListSelectionListener {
         ((screenSize.width) / 2) - ((win.getSize().width) / 2),
         ((screenSize.height) / 2) - ((win.getSize().height) / 2));
     win.setVisible(true);
-
   }
 
   public static void main(String args[]) {
@@ -114,7 +113,6 @@ public class EndGameReport implements ActionListener, ListSelectionListener {
       win.setVisible(false);
       result = 1;
     }
-
   }
 
   public void valueChanged(ListSelectionEvent e) {
@@ -132,6 +130,4 @@ public class EndGameReport implements ActionListener, ListSelectionListener {
     }
     return retVal;
   }
-
 }
-

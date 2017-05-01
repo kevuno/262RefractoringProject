@@ -34,8 +34,4 @@ public class Alley {
   public ControlDesk getControlDesk() {
     return controldesk;
   }
-
 }
-
-
-    

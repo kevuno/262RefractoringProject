@@ -604,5 +604,4 @@ public class Lane extends Thread implements PinsetterObserver {
     gameIsHalted = false;
     publish(lanePublish());
   }
-
 }

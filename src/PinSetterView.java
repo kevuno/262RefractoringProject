@@ -165,7 +165,6 @@ public class PinSetterView implements PinsetterObserver {
 
     frame.pack();
 
-
 //	frame.show();
   }
 
@@ -213,5 +212,4 @@ public class PinSetterView implements PinsetterObserver {
   public void hide() {
     frame.setVisible(false);
   }
-
 }

@@ -100,5 +100,4 @@ class BowlerFile {
     }
     return allBowlers;
   }
-
 }

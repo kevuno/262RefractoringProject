@@ -37,5 +37,4 @@ public class Queue {
   public Vector asVector() {
     return v;
   }
-
 }

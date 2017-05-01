@@ -200,6 +200,4 @@ public class Pinsetter {
   public void subscribe(PinsetterObserver subscriber) {
     subscribers.add(subscriber);
   }
-
 }
-

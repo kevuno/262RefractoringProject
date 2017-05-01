@@ -41,5 +41,4 @@ public class ControlDeskEvent {
   public Vector getPartyQueue() {
     return partyQueue;
   }
-
 }

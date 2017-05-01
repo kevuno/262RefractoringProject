@@ -88,7 +88,6 @@ public class LaneStatusView implements ActionListener, LaneObserver, PinsetterOb
     jp.add(pinsDown);
 
     jp.add(buttonPanel);
-
   }
 
   public JPanel showLane() {
@@ -145,5 +144,4 @@ public class LaneStatusView implements ActionListener, LaneObserver, PinsetterOb
 //		foul.setText( ( new Boolean(pe.isFoulCommited()) ).toString() );
 
   }
-
 }

@@ -47,5 +47,4 @@ public class Party {
   public Vector getMembers() {
     return myBowlers;
   }
-
 }

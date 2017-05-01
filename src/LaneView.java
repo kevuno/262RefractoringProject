@@ -42,7 +42,6 @@ public class LaneView implements LaneObserver, ActionListener {
     });
 
     cpanel.add(new JPanel());
-
   }
 
   public void show() {
@@ -188,5 +187,4 @@ public class LaneView implements LaneObserver, ActionListener {
       lane.pauseGame();
     }
   }
-
 }

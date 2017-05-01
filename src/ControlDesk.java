@@ -78,7 +78,6 @@ class ControlDesk extends Thread {
     }
 
     this.start();
-
   }
 
   /**
