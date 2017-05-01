@@ -26,7 +26,6 @@ public class NewPatronView implements ActionListener {
 
 	private JFrame win;
 	private JButton abort, finished;
-	private JLabel nickLabel, fullLabel, emailLabel;
 	private JTextField nickField, fullField, emailField;
 	private String nick, full, email;
 
@@ -50,21 +49,21 @@ public class NewPatronView implements ActionListener {
 
 		JPanel nickPanel = new JPanel();
 		nickPanel.setLayout(new FlowLayout());
-		nickLabel = new JLabel("Nick Name");
+		JLabel nickLabel = new JLabel("Nick Name");
 		nickField = new JTextField("", 15);
 		nickPanel.add(nickLabel);
 		nickPanel.add(nickField);
 
 		JPanel fullPanel = new JPanel();
 		fullPanel.setLayout(new FlowLayout());
-		fullLabel = new JLabel("Full Name");
+		JLabel fullLabel = new JLabel("Full Name");
 		fullField = new JTextField("", 15);
 		fullPanel.add(fullLabel);
 		fullPanel.add(fullField);
 
 		JPanel emailPanel = new JPanel();
 		emailPanel.setLayout(new FlowLayout());
-		emailLabel = new JLabel("E-Mail");
+		JLabel emailLabel = new JLabel("E-Mail");
 		emailField = new JTextField("", 15);
 		emailPanel.add(emailLabel);
 		emailPanel.add(emailField);

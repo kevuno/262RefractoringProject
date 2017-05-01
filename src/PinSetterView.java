@@ -22,7 +22,6 @@ public class PinSetterView implements PinsetterObserver {
 
 
     private Vector pinVect = new Vector ( );
-    private JPanel firstRoll;
     private JPanel secondRoll;
 
     /**
@@ -54,7 +53,7 @@ public class PinSetterView implements PinsetterObserver {
 	
 	JPanel top = new JPanel ( );
 	
-	firstRoll = new JPanel ( );
+	JPanel firstRoll = new JPanel ( );
 	firstRoll.setBackground( Color.yellow );
 	
 	secondRoll = new JPanel ( );
@@ -179,7 +178,7 @@ public class PinSetterView implements PinsetterObserver {
      * is grayed out.  When it is the second roll, it is indicated by the
      * appearance of a second yellow box at the top.
      *
-     * @param e    The state of the pinsetter is sent in this event.
+     * @param pe    The state of the pinsetter is sent in this event.
      */
     
 
