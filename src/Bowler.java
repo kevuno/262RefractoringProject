@@ -19,37 +19,29 @@
 
 /**
  *  Class that holds all bowler info
- *
  */
 
 public class Bowler {
 
-    private String fullName;
-    private String nickName;
-    private String email;
+	private String fullName;
+	private String nickName;
+	private String email;
 
-    public Bowler( String nick, String full, String mail ) {
-	nickName = nick;
-	fullName = full;
-  	email = mail;
-    }
-
-
-    public String getNickName() {
-
-        return nickName;  
-
-    }
-
-	public String getFullName ( ) {
-			return fullName;
+	public Bowler(String nick, String full, String mail) {
+		nickName = nick;
+		fullName = full;
+		email = mail;
 	}
-	
-	public String getNick ( ) {
+
+	public String getNickName() {
 		return nickName;
 	}
 
-	public String getEmail ( ) {
+	public String getFullName() {
+		return fullName;
+	}
+
+	public String getEmail() {
 		return email;	
 	}
 
