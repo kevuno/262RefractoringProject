@@ -1,11 +1,11 @@
-/*
- * Party.java
+package bowling;/*
+ * bowling.Party.java
  *
  * Version:
  *   $Id$
  *
  * Revisions:
- *   $Log: Party.java,v $
+ *   $Log: bowling.Party.java,v $
  *   Revision 1.3  2003/02/09 21:21:31  ???
  *   Added lots of comments
  *
@@ -13,7 +13,7 @@
  *   *** empty log message ***
  *
  *   Revision 1.1  2003/01/12 19:09:12  ???
- *   Adding Party, Lane, Bowler, and Alley.
+ *   Adding bowling.Party, bowling.Lane, bowling.Bowler, and bowling.Alley.
  *
  */
 
@@ -29,7 +29,7 @@ public class Party {
   private Vector myBowlers;
 
   /**
-   * Constructor for a Party
+   * Constructor for a bowling.Party
    *
    * @param bowlers  Vector of bowlers that are in this party
    */
@@ -47,5 +47,4 @@ public class Party {
   public Vector getMembers() {
     return myBowlers;
   }
-
 }

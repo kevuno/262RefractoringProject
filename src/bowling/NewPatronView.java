@@ -1,12 +1,12 @@
-/* AddPartyView.java
+package bowling;/* bowling.AddPartyView.java
  *
  *  Version
  *  $Id$
  * 
  *  Revisions:
- * 		$Log: NewPatronView.java,v $
+ * 		$Log: bowling.NewPatronView.java,v $
  * 		Revision 1.3  2003/02/02 16:29:52  ???
- * 		Added ControlDeskEvent and ControlDeskObserver. Updated Queue to allow access to Vector so that contents could be viewed without destroying. Implemented observer model for most of ControlDesk.
+ * 		Added bowling.ControlDeskEvent and bowling.ControlDeskObserver. Updated bowling.Queue to allow access to Vector so that contents could be viewed without destroying. Implemented observer model for most of bowling.ControlDesk.
  * 		
  * 
  */
@@ -106,7 +106,6 @@ public class NewPatronView implements ActionListener {
         ((screenSize.width) / 2) - ((win.getSize().width) / 2),
         ((screenSize.height) / 2) - ((win.getSize().height) / 2));
     win.setVisible(true);
-
   }
 
   public void actionPerformed(ActionEvent e) {
@@ -121,7 +120,6 @@ public class NewPatronView implements ActionListener {
       addParty.updateNewPatron(this);
       win.setVisible(false);
     }
-
   }
 
   public String getNick() {
@@ -135,5 +133,4 @@ public class NewPatronView implements ActionListener {
   public String getEmail() {
     return email;
   }
-
 }

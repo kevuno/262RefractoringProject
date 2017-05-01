@@ -1,4 +1,4 @@
-/* ControlDeskEvent.java
+package bowling;/* bowling.ControlDeskEvent.java
  *
  *  Version:
  *  		$Id$
@@ -20,7 +20,7 @@ public class ControlDeskEvent {
   private Vector partyQueue;
 
   /**
-   * Constructor for the ControlDeskEvent
+   * Constructor for the bowling.ControlDeskEvent
    *
    * @param partyQueue  a Vector of Strings containing the names of the parties in the wait queue
    *
@@ -41,5 +41,4 @@ public class ControlDeskEvent {
   public Vector getPartyQueue() {
     return partyQueue;
   }
-
 }

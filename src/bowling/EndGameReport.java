@@ -1,4 +1,4 @@
-/**
+package bowling; /**
  * To change this generated comment edit the template variable "typecomment":
  * Window>Preferences>Java>Templates.
  * To enable and disable the creation of type comments go to
@@ -39,7 +39,7 @@ public class EndGameReport implements ActionListener, ListSelectionListener {
     // Member Panel
     JPanel partyPanel = new JPanel();
     partyPanel.setLayout(new FlowLayout());
-    partyPanel.setBorder(new TitledBorder("Party Members"));
+    partyPanel.setBorder(new TitledBorder("bowling.Party Members"));
 
     Vector<String> myVector = new Vector<>();
     Iterator iter = (party.getMembers()).iterator();
@@ -92,7 +92,6 @@ public class EndGameReport implements ActionListener, ListSelectionListener {
         ((screenSize.width) / 2) - ((win.getSize().width) / 2),
         ((screenSize.height) / 2) - ((win.getSize().height) / 2));
     win.setVisible(true);
-
   }
 
   public static void main(String args[]) {
@@ -114,7 +113,6 @@ public class EndGameReport implements ActionListener, ListSelectionListener {
       win.setVisible(false);
       result = 1;
     }
-
   }
 
   public void valueChanged(ListSelectionEvent e) {
@@ -132,6 +130,4 @@ public class EndGameReport implements ActionListener, ListSelectionListener {
     }
     return retVal;
   }
-
 }
-

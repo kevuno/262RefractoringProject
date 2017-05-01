@@ -1,3 +1,5 @@
+package bowling;
+
 public class drive {
 
   public static void main(String[] args) {
@@ -10,6 +12,5 @@ public class drive {
 
     ControlDeskView cdv = new ControlDeskView(controlDesk, maxPatronsPerParty);
     controlDesk.subscribe(cdv);
-
   }
 }

@@ -1,5 +1,5 @@
-/*
- * PinSetterView/.java
+package bowling;/*
+ * bowling.PinSetterView/.java
  *
  * Version:
  *   $Id$
@@ -40,7 +40,7 @@ public class PinSetterView implements PinsetterObserver {
 
   public PinSetterView(int laneNum) {
 
-    frame = new JFrame("Lane " + laneNum + ":");
+    frame = new JFrame("bowling.Lane " + laneNum + ":");
 
     Container cpanel = frame.getContentPane();
 
@@ -165,7 +165,6 @@ public class PinSetterView implements PinsetterObserver {
 
     frame.pack();
 
-
 //	frame.show();
   }
 
@@ -213,5 +212,4 @@ public class PinSetterView implements PinsetterObserver {
   public void hide() {
     frame.setVisible(false);
   }
-
 }

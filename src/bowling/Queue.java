@@ -1,4 +1,4 @@
-/* Queue.java
+package bowling;/* bowling.Queue.java
  *
  *  Version
  *  $Id$
@@ -14,7 +14,7 @@ public class Queue {
   private Vector<Object> v;
 
   /**
-   * Queue()
+   * bowling.Queue()
    * <p>
    * creates a new queue
    */
@@ -37,5 +37,4 @@ public class Queue {
   public Vector asVector() {
     return v;
   }
-
 }

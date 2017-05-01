@@ -1,4 +1,4 @@
-/**
+package bowling; /**
  * To change this generated comment edit the template variable "typecomment":
  * Window>Preferences>Java>Templates.
  * To enable and disable the creation of type comments go to
@@ -34,12 +34,11 @@ public class ScoreHistoryFile {
     while ((data = in.readLine()) != null) {
       // File format is nick\tfname\te-mail
       String[] scoredata = data.split("\t");
-      //"Nick: scoredata[0] Date: scoredata[1] Score: scoredata[2]
+      //"Nick: scoredata[0] Date: scoredata[1] bowling.Score: scoredata[2]
       if (nick.equals(scoredata[0])) {
         scores.add(new Score(scoredata[0], scoredata[1], scoredata[2]));
       }
     }
     return scores;
   }
-
 }

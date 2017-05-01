@@ -1,3 +1,5 @@
+package bowling;
+
 /**
  * To change this generated comment edit the template variable "typecomment":
  * Window>Preferences>Java>Templates.
@@ -28,5 +30,4 @@ public class Score {
   public String toString() {
     return nick + "\t" + date + "\t" + score;
   }
-
 }

@@ -1,3 +1,5 @@
+package bowling;
+
 import java.util.HashMap;
 
 public interface LaneEventInterface extends java.rmi.Remote {
@@ -18,6 +20,4 @@ public interface LaneEventInterface extends java.rmi.Remote {
   Party getParty() throws java.rmi.RemoteException;
 
   Bowler getBowler() throws java.rmi.RemoteException;
-
 }
-

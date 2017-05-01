@@ -1,4 +1,4 @@
-/**
+package bowling; /**
  *
  */
 
@@ -44,5 +44,4 @@ public class PrintableText implements Printable {
 
     return PAGE_EXISTS;
   }
-
 }

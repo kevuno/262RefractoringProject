@@ -1,4 +1,4 @@
-/* ControlDeskView.java
+package bowling;/* bowling.ControlDeskView.java
  *
  *  Version:
  *			$Id$
@@ -35,7 +35,7 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
   private ControlDesk controlDesk;
 
   /**
-   * Displays a GUI representation of the ControlDesk
+   * Displays a GUI representation of the bowling.ControlDesk
    *
    */
 
@@ -57,7 +57,7 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
     controlsPanel.setLayout(new GridLayout(3, 1));
     controlsPanel.setBorder(new TitledBorder("Controls"));
 
-    addParty = new JButton("Add Party");
+    addParty = new JButton("Add bowling.Party");
     JPanel addPartyPanel = new JPanel();
     addPartyPanel.setLayout(new FlowLayout());
     addParty.addActionListener(this);
@@ -78,10 +78,10 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
     finishedPanel.add(finished);
     controlsPanel.add(finishedPanel);
 
-    // Lane Status Panel
+    // bowling.Lane Status Panel
     JPanel laneStatusPanel = new JPanel();
     laneStatusPanel.setLayout(new GridLayout(numLanes, 1));
-    laneStatusPanel.setBorder(new TitledBorder("Lane Status"));
+    laneStatusPanel.setBorder(new TitledBorder("bowling.Lane Status"));
 
     HashSet lanes = controlDesk.getLanes();
     Iterator it = lanes.iterator();
@@ -92,14 +92,14 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
       curLane.subscribe(laneStat);
       (curLane.getPinsetter()).subscribe(laneStat);
       JPanel lanePanel = laneStat.showLane();
-      lanePanel.setBorder(new TitledBorder("Lane" + ++laneCount));
+      lanePanel.setBorder(new TitledBorder("bowling.Lane" + ++laneCount));
       laneStatusPanel.add(lanePanel);
     }
 
-    // Party Queue Panel
+    // bowling.Party bowling.Queue Panel
     JPanel partyPanel = new JPanel();
     partyPanel.setLayout(new FlowLayout());
-    partyPanel.setBorder(new TitledBorder("Party Queue"));
+    partyPanel.setBorder(new TitledBorder("bowling.Party bowling.Queue"));
 
     Vector<String> empty = new Vector<>();
     empty.add("(Empty)");
@@ -135,7 +135,6 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
         ((screenSize.width) / 2) - ((win.getSize().width) / 2),
         ((screenSize.height) / 2) - ((win.getSize().height) / 2));
     win.setVisible(true);
-
   }
 
   /**
@@ -161,7 +160,7 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
   /**
    * Receive a new party from andPartyView.
    *
-   * @param addPartyView  the AddPartyView that is providing a new party
+   * @param addPartyView  the bowling.AddPartyView that is providing a new party
    *
    */
 
@@ -170,9 +169,9 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
   }
 
   /**
-   * Receive a broadcast from a ControlDesk
+   * Receive a broadcast from a bowling.ControlDesk
    *
-   * @param ce  the ControlDeskEvent that triggered the handler
+   * @param ce  the bowling.ControlDeskEvent that triggered the handler
    *
    */
 
