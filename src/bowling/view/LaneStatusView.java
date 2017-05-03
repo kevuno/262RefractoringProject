@@ -102,23 +102,22 @@ public class LaneStatusView implements ActionListener, LaneObserver, PinsetterOb
         if (!psShowing) {
           psv.show();
           psShowing = true;
-        } else if (psShowing) {
+        } else {
           psv.hide();
           psShowing = false;
         }
       }
-    }
-    if (e.getSource().equals(viewLane)) {
-      if (lane.isPartyAssigned()) {
+      if (e.getSource().equals(viewLane)) {
         if (!laneShowing) {
           lv.show();
           laneShowing = true;
-        } else if (laneShowing) {
+        } else {
           lv.hide();
           laneShowing = false;
         }
       }
     }
+
     if (e.getSource().equals(maintenance)) {
       if (lane.isPartyAssigned()) {
         lane.unPauseGame();
@@ -126,7 +125,6 @@ public class LaneStatusView implements ActionListener, LaneObserver, PinsetterOb
       }
     }
   }
-
   public void receiveLaneEvent(LaneEvent le) {
     curBowler.setText((le.getBowler()).getNickName());
     if (le.isMechanicalProblem()) {
