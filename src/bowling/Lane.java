@@ -239,7 +239,7 @@ public class Lane extends Thread implements PinsetterObserver {
           }
         }
       } else if (partyAssigned && gameFinished) {
-        EndGamePrompt egp = new EndGamePrompt(((Bowler) party.getMembers().get(0)).getNickName() + "'s bowling.model.Party");
+        EndGamePrompt egp = new EndGamePrompt(((Bowler) party.getMembers().get(0)).getNickName() + "'s Party");
         int result = egp.getResult();
         egp.destroy();
         egp = null;
@@ -254,7 +254,7 @@ public class Lane extends Thread implements PinsetterObserver {
 
         } else if (result == 2) {// no, don't want to play another game
           Vector printVector;
-          EndGameReport egr = new EndGameReport(((Bowler) party.getMembers().get(0)).getNickName() + "'s bowling.model.Party", party);
+          EndGameReport egr = new EndGameReport(((Bowler) party.getMembers().get(0)).getNickName() + "'s Party", party);
           printVector = egr.getResult();
           partyAssigned = false;
           Iterator scoreIt = party.getMembers().iterator();
