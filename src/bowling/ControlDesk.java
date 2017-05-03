@@ -51,7 +51,7 @@ import java.util.Vector;
 public class ControlDesk extends Thread {
 
   /** The collection of Lanes */
-  private HashSet lanes;
+  private HashSet<Lane> lanes;
 
   /** The party wait queue */
   private Queue partyQueue;
@@ -60,7 +60,7 @@ public class ControlDesk extends Thread {
   private int numLanes;
 
   /** The collection of subscribers */
-  private Vector subscribers;
+  private Vector<ControlDeskObserver> subscribers;
 
   /**
    * Constructor for the bowling.ControlDesk class
@@ -71,10 +71,10 @@ public class ControlDesk extends Thread {
 
   public ControlDesk(int numLanes) {
     this.numLanes = numLanes;
-    lanes = new HashSet(numLanes);
+    lanes = new HashSet<>(numLanes);
     partyQueue = new Queue();
 
-    subscribers = new Vector();
+    subscribers = new Vector<>();
 
     for (int i = 0; i < numLanes; i++) {
       lanes.add(new Lane());
@@ -160,7 +160,7 @@ public class ControlDesk extends Thread {
    */
 
   public void addPartyQueue(Vector partyNicks) {
-    Vector partyBowlers = new Vector();
+    Vector<Bowler> partyBowlers = new Vector<>();
     for (int i = 0; i < partyNicks.size(); i++) {
       Bowler newBowler = registerPatron(((String) partyNicks.get(i)));
       partyBowlers.add(newBowler);
@@ -178,7 +178,7 @@ public class ControlDesk extends Thread {
    */
 
   public Vector getPartyQueue() {
-    Vector displayPartyQueue = new Vector();
+    Vector<String> displayPartyQueue = new Vector<>();
     for (int i = 0; i < (partyQueue.asVector()).size(); i++) {
       String nextParty =
           ((Bowler) (((Party) partyQueue.asVector().get(i)).getMembers())

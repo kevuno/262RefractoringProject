@@ -34,8 +34,8 @@ public class Party {
    * @param bowlers  Vector of bowlers that are in this party
    */
 
-  public Party(Vector bowlers) {
-    myBowlers = new Vector(bowlers);
+  public Party(Vector<Bowler> bowlers) {
+    myBowlers = new Vector<>(bowlers);
   }
 
   /**
