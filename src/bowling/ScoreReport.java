@@ -13,46 +13,42 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
-import java.util.Iterator;
 import java.util.Vector;
 
 public class ScoreReport {
 
-  private String content;
+  private StringBuilder content;
 
   public ScoreReport(Bowler bowler, int[] scores, int games) {
     String nick = bowler.getNickName();
     String full = bowler.getFullName();
-    Vector v = null;
+    Vector<Score> v = null;
     try {
       v = ScoreHistoryFile.getScores(nick);
     } catch (Exception e) {
       System.err.println("Error: " + e);
     }
 
-    Iterator scoreIt = v.iterator();
-
-    content = "";
-    content += "--Lucky Strike Bowling Alley Score Report--\n";
-    content += "\n";
-    content += "Report for " + full + ", aka \"" + nick + "\":\n";
-    content += "\n";
-    content += "Final scores for this session: ";
-    content += scores[0];
+    content = new StringBuilder();
+    content.append("--Lucky Strike Bowling Alley Score Report--\n");
+    content.append("\n");
+    content.append("Report for ").append(full).append(", aka \"").append(nick).append("\":\n");
+    content.append("\n");
+    content.append("Final scores for this session: ");
+    content.append(scores[0]);
     for (int i = 1; i < games; i++) {
-      content += ", " + scores[i];
+      content.append(", ").append(scores[i]);
     }
-    content += ".\n";
-    content += "\n";
-    content += "\n";
-    content += "Previous scores by date: \n";
-    while (scoreIt.hasNext()) {
-      Score score = (Score) scoreIt.next();
-      content += "  " + score.getDate() + " - " + score.getScore();
-      content += "\n";
+    content.append(".\n");
+    content.append("\n");
+    content.append("\n");
+    content.append("Previous scores by date: \n");
+    for (Score score : v) {
+      content.append("  ").append(score.getDate()).append(" - ").append(score.getScore()).append("\n");
+      content.append("\n");
     }
-    content += "\n\n";
-    content += "Thank you for your continuing patronage.";
+    content.append("\n\n");
+    content.append("Thank you for your continuing patronage.");
   }
 
   public void sendEmail(String recipient) {
@@ -90,7 +86,7 @@ public class ScoreReport {
   public void sendPrintout() {
     PrinterJob job = PrinterJob.getPrinterJob();
 
-    PrintableText printobj = new PrintableText(content);
+    PrintableText printobj = new PrintableText(content.toString());
 
     job.setPrintable(printobj);
 
