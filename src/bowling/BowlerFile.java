@@ -20,16 +20,14 @@ package bowling;/* bowling.BowlerFile.java
 
 import bowling.model.Bowler;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.util.Vector;
 
 public class BowlerFile {
 
   /** The location of the bowler database */
   private static String BOWLER_DAT = "BOWLERS.DAT";
+  private static File BOWLER_DAT_FILE = new File(BOWLER_DAT);
 
   /**
    * Retrieves bowler information from the database and returns a bowling.model.Bowler objects with populated fields.
@@ -41,8 +39,7 @@ public class BowlerFile {
    */
 
   public static Bowler getBowlerInfo(String nickName) throws IOException {
-
-    BufferedReader in = new BufferedReader(new FileReader(BOWLER_DAT));
+    BufferedReader in = new BufferedReader(new FileReader(BOWLER_DAT_FILE));
     String data;
     while ((data = in.readLine()) != null) {
       // File format is nick\tfname\te-mail
@@ -89,10 +86,13 @@ public class BowlerFile {
    */
 
   public static Vector getBowlers() throws IOException {
-
     Vector<String> allBowlers = new Vector<>();
 
-    BufferedReader in = new BufferedReader(new FileReader(BOWLER_DAT));
+    if (BOWLER_DAT_FILE.createNewFile()){
+      System.out.println("Creating " + BOWLER_DAT);
+    }
+
+    BufferedReader in = new BufferedReader(new FileReader(BOWLER_DAT_FILE));
     String data;
     while ((data = in.readLine()) != null) {
       // File format is nick\tfname\te-mail
