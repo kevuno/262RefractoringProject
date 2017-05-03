@@ -59,7 +59,7 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
     controlsPanel.setLayout(new GridLayout(3, 1));
     controlsPanel.setBorder(new TitledBorder("Controls"));
 
-    addParty = new JButton("Add bowling.model.Party");
+    addParty = new JButton("Party");
     JPanel addPartyPanel = new JPanel();
     addPartyPanel.setLayout(new FlowLayout());
     addParty.addActionListener(this);
@@ -83,7 +83,7 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
     // bowling.Lane Status Panel
     JPanel laneStatusPanel = new JPanel();
     laneStatusPanel.setLayout(new GridLayout(numLanes, 1));
-    laneStatusPanel.setBorder(new TitledBorder("bowling.Lane Status"));
+    laneStatusPanel.setBorder(new TitledBorder("Lane Status"));
 
     HashSet lanes = controlDesk.getLanes();
     Iterator it = lanes.iterator();
@@ -94,14 +94,14 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
       curLane.subscribe(laneStat);
       (curLane.getPinsetter()).subscribe(laneStat);
       JPanel lanePanel = laneStat.showLane();
-      lanePanel.setBorder(new TitledBorder("bowling.Lane" + ++laneCount));
+      lanePanel.setBorder(new TitledBorder("Lane" + ++laneCount));
       laneStatusPanel.add(lanePanel);
     }
 
     // bowling.model.Party bowling.Queue Panel
     JPanel partyPanel = new JPanel();
     partyPanel.setLayout(new FlowLayout());
-    partyPanel.setBorder(new TitledBorder("bowling.model.Party bowling.Queue"));
+    partyPanel.setBorder(new TitledBorder("Party Queue"));
 
     Vector empty = new Vector();
     empty.add("(Empty)");

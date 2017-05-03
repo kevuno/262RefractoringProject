@@ -43,7 +43,7 @@ public class PinSetterView implements PinsetterObserver {
 
   public PinSetterView(int laneNum) {
 
-    frame = new JFrame("bowling.Lane " + laneNum + ":");
+    frame = new JFrame("Lane " + laneNum + ":");
 
     Container cpanel = frame.getContentPane();
 
