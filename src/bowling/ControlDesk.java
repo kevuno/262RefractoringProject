@@ -161,8 +161,8 @@ public class ControlDesk extends Thread {
 
   public void addPartyQueue(Vector partyNicks) {
     Vector<Bowler> partyBowlers = new Vector<>();
-    for (int i = 0; i < partyNicks.size(); i++) {
-      Bowler newBowler = registerPatron(((String) partyNicks.get(i)));
+    for (Object partyNick : partyNicks) {
+      Bowler newBowler = registerPatron(((String) partyNick));
       partyBowlers.add(newBowler);
     }
     Party newParty = new Party(partyBowlers);
