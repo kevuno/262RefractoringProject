@@ -46,7 +46,7 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
   private int maxSize;
 
   private JFrame win;
-  private JButton addPatron, remPatron, finished;
+  private JButton addPatron, newPatron, remPatron, finished;
   private JList partyList, allBowlers;
   private Vector<String> party;
   private Vector bowlerdb;
@@ -120,7 +120,7 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
     remPatron.addActionListener(this);
     remPatronPanel.add(remPatron);
 
-    JButton newPatron = new JButton("New Patron");
+    newPatron = new JButton("New Patron");
     JPanel newPatronPanel = new JPanel();
     newPatronPanel.setLayout(new FlowLayout());
     newPatron.addActionListener(this);
@@ -170,6 +170,9 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
         party.removeElement(selectedMember);
         partyList.setListData(party);
       }
+    }
+    if (e.getSource().equals(newPatron)) {
+      NewPatronView newPatron = new NewPatronView(this);
     }
     if (e.getSource().equals(finished)) {
       if (party != null && party.size() > 0) {

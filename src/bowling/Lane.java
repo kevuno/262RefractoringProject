@@ -242,8 +242,6 @@ public class Lane extends Thread implements PinsetterObserver {
         EndGamePrompt egp = new EndGamePrompt(((Bowler) party.getMembers().get(0)).getNickName() + "'s bowling.model.Party");
         int result = egp.getResult();
         egp.destroy();
-        egp = null;
-
 
         System.out.println("result was: " + result);
 
@@ -331,7 +329,6 @@ public class Lane extends Thread implements PinsetterObserver {
         } else if (pe.getThrowNumber() == 3)
           System.out.println("I'm here...");
       }
-    } else {                //  this is not a real throw, probably a reset
     }
   }
 
@@ -407,7 +404,7 @@ public class Lane extends Thread implements PinsetterObserver {
     int[] curScore;
     int index = ((frame - 1) * 2 + ball);
 
-    curScore = (int[]) scores.get(Cur);
+    curScore = scores.get(Cur);
 
 
     curScore[index - 1] = score;
@@ -436,11 +433,11 @@ public class Lane extends Thread implements PinsetterObserver {
    * @param frame The frame the current bowler is on
    * @return The bowlers total score
    */
-  private void getScore(Bowler Cur, int frame) {
+  private int getScore(Bowler Cur, int frame) { //This whole method might be very useless.
     int[] curScore;
-    int strikeballs = 0;
+    int strikeballs;
     int totalScore = 0;
-    curScore = (int[]) scores.get(Cur);
+    curScore = scores.get(Cur);
     for (int i = 0; i != 10; i++) {
       cumulScores[bowlIndex][i] = 0;
     }
@@ -453,9 +450,6 @@ public class Lane extends Thread implements PinsetterObserver {
         //Also, we're not on the current ball.
         //Add the next ball to the ith one in cumul.
         cumulScores[bowlIndex][(i / 2)] += curScore[i + 1] + curScore[i];
-        if (i > 1) {
-          //cumulScores[bowlIndex][i/2] += cumulScores[bowlIndex][i/2 -1];
-        }
       } else if (i < current && i % 2 == 0 && curScore[i] == 10 && i < 18) {
         strikeballs = 0;
         //This ball is the first ball, and was a strike.
@@ -539,6 +533,7 @@ public class Lane extends Thread implements PinsetterObserver {
         }
       }
     }
+    return totalScore;
   }
 
   /**
