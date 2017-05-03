@@ -268,8 +268,9 @@ public class Lane extends Thread implements PinsetterObserver {
             Bowler thisBowler = (Bowler) scoreIt.next();
             ScoreReport sr = new ScoreReport(thisBowler, finalScores[myIndex++], gameNumber);
             sr.sendEmail(thisBowler.getEmail());
-            for (Object aPrintVector : printVector) {
-              if (thisBowler.getNickName() == aPrintVector) {
+            Iterator printIt = printVector.iterator();
+            while (printIt.hasNext()) {
+              if (thisBowler.getNickName() == printIt.next()) {
                 System.out.println("Printing " + thisBowler.getNickName());
                 sr.sendPrintout();
               }
@@ -355,13 +356,14 @@ public class Lane extends Thread implements PinsetterObserver {
    * @post scoring system is initialized
    */
   private void resetScores() {
+    Iterator bowlIt = (party.getMembers()).iterator();
 
-    for (Object o : (party.getMembers())) {
+    while (bowlIt.hasNext()) {
       int[] toPut = new int[25];
       for (int i = 0; i != 25; i++) {
         toPut[i] = -1;
       }
-      scores.put(o, toPut);
+      scores.put(bowlIt.next(), toPut);
     }
 
 
@@ -572,9 +574,10 @@ public class Lane extends Thread implements PinsetterObserver {
 
   public void publish(LaneEvent event) {
     if (subscribers.size() > 0) {
+      Iterator eventIterator = subscribers.iterator();
 
-      for (Object subscriber : subscribers) {
-        (subscriber).receiveLaneEvent(event);
+      while (eventIterator.hasNext()) {
+        ((LaneObserver) eventIterator.next()).receiveLaneEvent(event);
       }
     }
   }
