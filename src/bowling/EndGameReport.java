@@ -46,7 +46,7 @@ public class EndGameReport implements ActionListener, ListSelectionListener {
     while (iter.hasNext()) {
       myVector.add(((Bowler) iter.next()).getNickName());
     }
-    JList memberList = new JList(myVector);
+    JList memberList = new JList<>(myVector);
     memberList.setFixedCellWidth(120);
     memberList.setVisibleRowCount(5);
     memberList.addListSelectionListener(this);
