@@ -1,10 +1,10 @@
-package bowling;/* bowling.AddPartyView.java
+package bowling.view;/* bowling.view.AddPartyView.java
  *
  *  Version:
  * 		 $Id$
  * 
  *  Revisions:
- * 		$Log: bowling.AddPartyView.java,v $
+ * 		$Log: bowling.view.AddPartyView.java,v $
  * 		Revision 1.7  2003/02/20 02:05:53  ???
  * 		Fixed addPatron so that duplicates won't be created.
  * 		
@@ -23,6 +23,9 @@ package bowling;/* bowling.AddPartyView.java
 /**
  * Class for GUI components need to add a party
  */
+
+import bowling.BowlerFile;
+import bowling.model.Bowler;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -57,17 +60,17 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
     this.controlDesk = controlDesk;
     maxSize = max;
 
-    win = new JFrame("Add bowling.Party");
+    win = new JFrame("Add Party");
     win.getContentPane().setLayout(new BorderLayout());
     ((JPanel) win.getContentPane()).setOpaque(false);
 
     JPanel colPanel = new JPanel();
     colPanel.setLayout(new GridLayout(1, 3));
 
-    // bowling.Party Panel
+    // bowling.model.Party Panel
     JPanel partyPanel = new JPanel();
     partyPanel.setLayout(new FlowLayout());
-    partyPanel.setBorder(new TitledBorder("Your bowling.Party"));
+    partyPanel.setBorder(new TitledBorder("Your Party"));
 
     party = new Vector<>();
     Vector<String> empty = new Vector<>();
@@ -81,10 +84,10 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
     //        partyPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
     partyPanel.add(partyPane);
 
-    // bowling.Bowler Database
+    // bowling.model.Bowler Database
     JPanel bowlerPanel = new JPanel();
     bowlerPanel.setLayout(new FlowLayout());
-    bowlerPanel.setBorder(new TitledBorder("bowling.Bowler Database"));
+    bowlerPanel.setBorder(new TitledBorder("Bowler Database"));
 
     try {
       bowlerdb = new Vector(BowlerFile.getBowlers());
@@ -107,7 +110,7 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
 
     Insets buttonMargin = new Insets(4, 4, 4, 4);
 
-    addPatron = new JButton("Add to bowling.Party");
+    addPatron = new JButton("Add to Party");
     JPanel addPatronPanel = new JPanel();
     addPatronPanel.setLayout(new FlowLayout());
     addPatron.addActionListener(this);
@@ -157,7 +160,7 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
     if (e.getSource().equals(addPatron)) {
       if (selectedNick != null && party.size() < maxSize) {
         if (party.contains(selectedNick)) {
-          System.err.println("Member already in bowling.Party");
+          System.err.println("Member already in Party");
         } else {
           party.add(selectedNick);
           partyList.setListData(party);
@@ -198,9 +201,9 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
   }
 
   /**
-   * Called by bowling.NewPatronView to notify bowling.AddPartyView to update
+   * Called by bowling.view.NewPatronView to notify bowling.view.AddPartyView to update
    *
-   * @param newPatron the bowling.NewPatronView that called this method
+   * @param newPatron the bowling.view.NewPatronView that called this method
    */
 
   public void updateNewPatron(NewPatronView newPatron) {
@@ -216,7 +219,7 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
         party.add(newPatron.getNick());
         partyList.setListData(party);
       } else {
-        System.err.println("A bowling.Bowler with that name already exists.");
+        System.err.println("A Bowler with that name already exists.");
       }
     } catch (Exception e2) {
       System.err.println("File I/O Error");
@@ -224,7 +227,7 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
   }
 
   /**
-   * Accessor for bowling.Party
+   * Accessor for bowling.model.Party
    */
 
   public Vector getParty() {

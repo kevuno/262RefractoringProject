@@ -5,6 +5,9 @@ package bowling; /**
  * Window>Preferences>Java>Code Generation.
  */
 
+import bowling.model.Bowler;
+import bowling.model.Party;
+
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
@@ -39,7 +42,7 @@ public class EndGameReport implements ActionListener, ListSelectionListener {
     // Member Panel
     JPanel partyPanel = new JPanel();
     partyPanel.setLayout(new FlowLayout());
-    partyPanel.setBorder(new TitledBorder("bowling.Party Members"));
+    partyPanel.setBorder(new TitledBorder("bowling.model.Party Members"));
 
     Vector<String> myVector = new Vector<>();
     Iterator iter = (party.getMembers()).iterator();

@@ -15,7 +15,7 @@ package bowling;/* $Id$
  *   Works beautifully.
  *
  *   Revision 1.48  2003/02/20 04:10:58  ???
- *   bowling.Score reporting code should be good.
+ *   bowling.model.Score reporting code should be good.
  *
  *   Revision 1.47  2003/02/17 00:25:28  ???
  *   Added disbale controls for View objects.
@@ -45,7 +45,7 @@ package bowling;/* $Id$
  *   added mechnanical problem flag
  *
  *   Revision 1.36  2003/02/16 21:31:04  ???
- *   bowling.Score logging.
+ *   bowling.model.Score logging.
  *
  *   Revision 1.35  2003/02/09 21:38:00  ???
  *   Added lots of comments
@@ -129,6 +129,9 @@ package bowling;/* $Id$
  *
  * 
  */
+
+import bowling.model.Bowler;
+import bowling.model.Party;
 
 import java.util.*;
 
@@ -236,7 +239,7 @@ public class Lane extends Thread implements PinsetterObserver {
           }
         }
       } else if (partyAssigned && gameFinished) {
-        EndGamePrompt egp = new EndGamePrompt(((Bowler) party.getMembers().get(0)).getNickName() + "'s bowling.Party");
+        EndGamePrompt egp = new EndGamePrompt(((Bowler) party.getMembers().get(0)).getNickName() + "'s bowling.model.Party");
         int result = egp.getResult();
         egp.destroy();
         egp = null;
@@ -251,7 +254,7 @@ public class Lane extends Thread implements PinsetterObserver {
 
         } else if (result == 2) {// no, don't want to play another game
           Vector printVector;
-          EndGameReport egr = new EndGameReport(((Bowler) party.getMembers().get(0)).getNickName() + "'s bowling.Party", party);
+          EndGameReport egr = new EndGameReport(((Bowler) party.getMembers().get(0)).getNickName() + "'s bowling.model.Party", party);
           printVector = egr.getResult();
           partyAssigned = false;
           Iterator scoreIt = party.getMembers().iterator();
@@ -373,7 +376,7 @@ public class Lane extends Thread implements PinsetterObserver {
    * <p>
    * assigns a party to this lane
    *
-   * @param theParty bowling.Party to be assigned
+   * @param theParty bowling.model.Party to be assigned
    * @pre none
    * @post the party has been assigned to the lane
    */

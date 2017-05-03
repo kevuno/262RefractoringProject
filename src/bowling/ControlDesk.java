@@ -9,7 +9,7 @@ package bowling;/* bowling.ControlDesk.java
  * 		bowling.ControlDesk now runs its own thread and polls for free lanes to assign queue members to
  * 		
  * 		Revision 1.12  2003/02/02 20:46:13  ???
- * 		Added " 's bowling.Party" to party names.
+ * 		Added " 's bowling.model.Party" to party names.
  * 		
  * 		Revision 1.11  2003/02/02 20:43:25  ???
  * 		misc cleanup
@@ -27,7 +27,7 @@ package bowling;/* bowling.ControlDesk.java
  * 		Added bowling.ControlDeskEvent and bowling.ControlDeskObserver. Updated bowling.Queue to allow access to Vector so that contents could be viewed without destroying. Implemented observer model for most of bowling.ControlDesk.
  * 		
  * 		Revision 1.6  2003/02/02 06:09:39  ???
- * 		Updated many classes to support the bowling.ControlDeskView.
+ * 		Updated many classes to support the bowling.view.ControlDeskView.
  * 		
  * 		Revision 1.5  2003/01/26 23:16:10  ???
  * 		Improved thread handeling in lane/controldesk
@@ -39,13 +39,16 @@ package bowling;/* bowling.ControlDesk.java
  * Class that represents control desk
  */
 
+import bowling.model.Bowler;
+import bowling.model.Party;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Vector;
 
-class ControlDesk extends Thread {
+public class ControlDesk extends Thread {
 
   /** The collection of Lanes */
   private HashSet<Lane> lanes;
@@ -98,11 +101,11 @@ class ControlDesk extends Thread {
 
 
   /**
-   * Retrieves a matching bowling.Bowler from the bowler database.
+   * Retrieves a matching bowling.model.Bowler from the bowler database.
    *
-   * @param nickName  The NickName of the bowling.Bowler
+   * @param nickName  The NickName of the bowling.model.Bowler
    *
-   * @return a bowling.Bowler object.
+   * @return a bowling.model.Bowler object.
    *
    */
 
@@ -180,7 +183,7 @@ class ControlDesk extends Thread {
       String nextParty =
           ((Bowler) (((Party) partyQueue.asVector().get(i)).getMembers())
               .get(0))
-              .getNickName() + "'s bowling.Party";
+              .getNickName() + "'s bowling.model.Party";
       displayPartyQueue.addElement(nextParty);
     }
     return displayPartyQueue;

@@ -1,5 +1,8 @@
 package bowling;
 
+import bowling.model.Bowler;
+import bowling.model.Party;
+
 import java.util.HashMap;
 
 public interface LaneEventInterface extends java.rmi.Remote {

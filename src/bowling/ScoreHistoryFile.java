@@ -5,6 +5,8 @@ package bowling; /**
  * Window>Preferences>Java>Code Generation.
  */
 
+import bowling.model.Score;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -34,7 +36,7 @@ public class ScoreHistoryFile {
     while ((data = in.readLine()) != null) {
       // File format is nick\tfname\te-mail
       String[] scoredata = data.split("\t");
-      //"Nick: scoredata[0] Date: scoredata[1] bowling.Score: scoredata[2]
+      //"Nick: scoredata[0] Date: scoredata[1] bowling.model.Score: scoredata[2]
       if (nick.equals(scoredata[0])) {
         scores.add(new Score(scoredata[0], scoredata[1], scoredata[2]));
       }
