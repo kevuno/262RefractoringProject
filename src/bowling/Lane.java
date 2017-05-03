@@ -268,13 +268,12 @@ public class Lane extends Thread implements PinsetterObserver {
             Bowler thisBowler = (Bowler) scoreIt.next();
             ScoreReport sr = new ScoreReport(thisBowler, finalScores[myIndex++], gameNumber);
             sr.sendEmail(thisBowler.getEmail());
-            Iterator printIt = printVector.iterator();
-            while (printIt.hasNext()) {
-              if (thisBowler.getNickName() == printIt.next()) {
+            printVector.forEach(aPrintVector -> {
+              if (thisBowler.getNickName() == aPrintVector) {
                 System.out.println("Printing " + thisBowler.getNickName());
                 sr.sendPrintout();
               }
-            }
+            });
           }
         }
       }
@@ -356,15 +355,14 @@ public class Lane extends Thread implements PinsetterObserver {
    * @post scoring system is initialized
    */
   private void resetScores() {
-    Iterator bowlIt = (party.getMembers()).iterator();
 
-    while (bowlIt.hasNext()) {
+    party.getMembers().forEach(member -> {
       int[] toPut = new int[25];
       for (int i = 0; i != 25; i++) {
         toPut[i] = -1;
       }
-      scores.put(bowlIt.next(), toPut);
-    }
+      scores.put(member, toPut);
+    });
 
 
     gameFinished = false;
@@ -407,7 +405,7 @@ public class Lane extends Thread implements PinsetterObserver {
     int[] curScore;
     int index = ((frame - 1) * 2 + ball);
 
-    curScore = (int[]) scores.get(Cur);
+    curScore = scores.get(Cur);
 
 
     curScore[index - 1] = score;
@@ -440,7 +438,7 @@ public class Lane extends Thread implements PinsetterObserver {
     int[] curScore;
     int strikeballs = 0;
     int totalScore = 0;
-    curScore = (int[]) scores.get(Cur);
+    curScore = scores.get(Cur);
     for (int i = 0; i != 10; i++) {
       cumulScores[bowlIndex][i] = 0;
     }
@@ -574,11 +572,7 @@ public class Lane extends Thread implements PinsetterObserver {
 
   public void publish(LaneEvent event) {
     if (subscribers.size() > 0) {
-      Iterator eventIterator = subscribers.iterator();
-
-      while (eventIterator.hasNext()) {
-        ((LaneObserver) eventIterator.next()).receiveLaneEvent(event);
-      }
+      subscribers.forEach(subscriber->subscriber.receiveLaneEvent(event));
     }
   }
 

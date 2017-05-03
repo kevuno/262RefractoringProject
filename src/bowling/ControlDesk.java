@@ -159,12 +159,10 @@ public class ControlDesk extends Thread {
    *
    */
 
-  public void addPartyQueue(Vector partyNicks) {
+  public void addPartyQueue(Vector<String> partyNicks) {
     Vector<Bowler> partyBowlers = new Vector<>();
-    for (int i = 0; i < partyNicks.size(); i++) {
-      Bowler newBowler = registerPatron(((String) partyNicks.get(i)));
-      partyBowlers.add(newBowler);
-    }
+    partyNicks.forEach(partyNick -> partyBowlers.add(registerPatron(partyNick)));
+
     Party newParty = new Party(partyBowlers);
     partyQueue.add(newParty);
     publish(new ControlDeskEvent(getPartyQueue()));
@@ -219,14 +217,7 @@ public class ControlDesk extends Thread {
    */
 
   public void publish(ControlDeskEvent event) {
-    Iterator eventIterator = subscribers.iterator();
-    while (eventIterator.hasNext()) {
-      (
-          (ControlDeskObserver) eventIterator
-              .next())
-          .receiveControlDeskEvent(
-              event);
-    }
+    subscribers.forEach(subscriber->subscriber.receiveControlDeskEvent(event));
   }
 
   /**

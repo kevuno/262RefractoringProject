@@ -15,9 +15,9 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Iterator;
 import java.util.Vector;
 
+@SuppressWarnings("ALL")
 public class EndGameReport implements ActionListener, ListSelectionListener {
 
   private JFrame win;
@@ -45,10 +45,8 @@ public class EndGameReport implements ActionListener, ListSelectionListener {
     partyPanel.setBorder(new TitledBorder("Party Members"));
 
     Vector<String> myVector = new Vector<>();
-    Iterator iter = (party.getMembers()).iterator();
-    while (iter.hasNext()) {
-      myVector.add(((Bowler) iter.next()).getNickName());
-    }
+    party.getMembers().forEach(member->myVector.add(member.getNickName()));
+
     JList memberList = new JList<>(myVector);
     memberList.setFixedCellWidth(120);
     memberList.setVisibleRowCount(5);
