@@ -32,7 +32,7 @@ public class EndGamePrompt implements ActionListener {
     JPanel labelPanel = new JPanel();
     labelPanel.setLayout(new FlowLayout());
 
-    JLabel message = new JLabel("bowling.model.Party " + partyName
+    JLabel message = new JLabel("Party " + partyName
         + " has finished bowling.\nWould they like to bowl another game?");
 
     labelPanel.add(message);
