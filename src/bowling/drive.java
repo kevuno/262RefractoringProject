@@ -1,5 +1,7 @@
 package bowling;
 
+import bowling.model.Alley;
+
 public class drive {
 
   public static void main(String[] args) {

@@ -57,7 +57,7 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
     controlsPanel.setLayout(new GridLayout(3, 1));
     controlsPanel.setBorder(new TitledBorder("Controls"));
 
-    addParty = new JButton("Add bowling.Party");
+    addParty = new JButton("Add bowling.model.Party");
     JPanel addPartyPanel = new JPanel();
     addPartyPanel.setLayout(new FlowLayout());
     addParty.addActionListener(this);
@@ -96,10 +96,10 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
       laneStatusPanel.add(lanePanel);
     }
 
-    // bowling.Party bowling.Queue Panel
+    // bowling.model.Party bowling.Queue Panel
     JPanel partyPanel = new JPanel();
     partyPanel.setLayout(new FlowLayout());
-    partyPanel.setBorder(new TitledBorder("bowling.Party bowling.Queue"));
+    partyPanel.setBorder(new TitledBorder("bowling.model.Party bowling.Queue"));
 
     Vector empty = new Vector();
     empty.add("(Empty)");

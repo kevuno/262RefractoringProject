@@ -23,6 +23,9 @@ package bowling;/*  $Id$
  *
  */
 
+import bowling.model.Bowler;
+import bowling.model.Party;
+
 import java.util.HashMap;
 
 public class LaneEvent {

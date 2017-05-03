@@ -3,6 +3,9 @@ package bowling;/*
  *
  */
 
+import bowling.model.Bowler;
+import bowling.model.Party;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

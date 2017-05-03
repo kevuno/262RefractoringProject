@@ -15,8 +15,10 @@ package bowling;/* bowling.BowlerFile.java
  */
 
 /**
- * Class for interfacing with bowling.Bowler database
+ * Class for interfacing with bowling.model.Bowler database
  */
+
+import bowling.model.Bowler;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -30,11 +32,11 @@ class BowlerFile {
   private static String BOWLER_DAT = "BOWLERS.DAT";
 
   /**
-   * Retrieves bowler information from the database and returns a bowling.Bowler objects with populated fields.
+   * Retrieves bowler information from the database and returns a bowling.model.Bowler objects with populated fields.
    *
    * @param nickName  the nickName of the bowler to retrieve
    *
-   * @return a bowling.Bowler object
+   * @return a bowling.model.Bowler object
    *
    */
 
@@ -61,11 +63,11 @@ class BowlerFile {
   }
 
   /**
-   * Stores a bowling.Bowler in the database
+   * Stores a bowling.model.Bowler in the database
    *
-   * @param nickName  the NickName of the bowling.Bowler
-   * @param fullName  the FullName of the bowling.Bowler
-   * @param email  the E-mail Address of the bowling.Bowler
+   * @param nickName  the NickName of the bowling.model.Bowler
+   * @param fullName  the FullName of the bowling.model.Bowler
+   * @param email  the E-mail Address of the bowling.model.Bowler
    *
    */
 

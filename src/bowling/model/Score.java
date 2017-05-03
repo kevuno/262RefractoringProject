@@ -1,4 +1,4 @@
-package bowling;
+package bowling.model;
 
 /**
  * To change this generated comment edit the template variable "typecomment":
