@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Vector;
 
-class BowlerFile {
+public class BowlerFile {
 
   /** The location of the bowler database */
   private static String BOWLER_DAT = "BOWLERS.DAT";

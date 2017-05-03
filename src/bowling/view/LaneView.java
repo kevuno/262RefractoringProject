@@ -1,8 +1,11 @@
-package bowling;/*
+package bowling.view;/*
  *  constructs a prototype bowling.Lane View
  *
  */
 
+import bowling.Lane;
+import bowling.LaneEvent;
+import bowling.LaneObserver;
 import bowling.model.Bowler;
 import bowling.model.Party;
 

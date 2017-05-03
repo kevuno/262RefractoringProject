@@ -1,5 +1,5 @@
-package bowling;/*
- * bowling.PinSetterView/.java
+package bowling.view;/*
+ * bowling.view.PinSetterView/.java
  *
  * Version:
  *   $Id$
@@ -11,6 +11,9 @@ package bowling;/*
 /**
  * constructs a prototype PinSetter GUI
  */
+
+import bowling.PinsetterEvent;
+import bowling.PinsetterObserver;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,4 @@
-package bowling;/* bowling.ControlDeskView.java
+package bowling.view;/* bowling.view.ControlDeskView.java
  *
  *  Version:
  *			$Id$
@@ -11,6 +11,8 @@ package bowling;/* bowling.ControlDeskView.java
 /**
  * Class for representation of the control desk
  */
+
+import bowling.*;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -160,7 +162,7 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
   /**
    * Receive a new party from andPartyView.
    *
-   * @param addPartyView  the bowling.AddPartyView that is providing a new party
+   * @param addPartyView  the bowling.view.AddPartyView that is providing a new party
    *
    */
 

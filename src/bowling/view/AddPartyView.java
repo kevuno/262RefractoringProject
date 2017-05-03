@@ -1,10 +1,10 @@
-package bowling;/* bowling.AddPartyView.java
+package bowling.view;/* bowling.view.AddPartyView.java
  *
  *  Version:
  * 		 $Id$
  * 
  *  Revisions:
- * 		$Log: bowling.AddPartyView.java,v $
+ * 		$Log: bowling.view.AddPartyView.java,v $
  * 		Revision 1.7  2003/02/20 02:05:53  ???
  * 		Fixed addPatron so that duplicates won't be created.
  * 		
@@ -24,6 +24,7 @@ package bowling;/* bowling.AddPartyView.java
  * Class for GUI components need to add a party
  */
 
+import bowling.BowlerFile;
 import bowling.model.Bowler;
 
 import javax.swing.*;
@@ -199,9 +200,9 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
   }
 
   /**
-   * Called by bowling.NewPatronView to notify bowling.AddPartyView to update
+   * Called by bowling.view.NewPatronView to notify bowling.view.AddPartyView to update
    *
-   * @param newPatron the bowling.NewPatronView that called this method
+   * @param newPatron the bowling.view.NewPatronView that called this method
    */
 
   public void updateNewPatron(NewPatronView newPatron) {

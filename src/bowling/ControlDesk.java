@@ -27,7 +27,7 @@ package bowling;/* bowling.ControlDesk.java
  * 		Added bowling.ControlDeskEvent and bowling.ControlDeskObserver. Updated bowling.Queue to allow access to Vector so that contents could be viewed without destroying. Implemented observer model for most of bowling.ControlDesk.
  * 		
  * 		Revision 1.6  2003/02/02 06:09:39  ???
- * 		Updated many classes to support the bowling.ControlDeskView.
+ * 		Updated many classes to support the bowling.view.ControlDeskView.
  * 		
  * 		Revision 1.5  2003/01/26 23:16:10  ???
  * 		Improved thread handeling in lane/controldesk
