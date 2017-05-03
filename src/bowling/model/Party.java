@@ -26,7 +26,7 @@ import java.util.Vector;
 public class Party {
 
   /** Vector of bowlers in this party */
-  private Vector myBowlers;
+  private Vector<Bowler> myBowlers;
 
   /**
    * Constructor for a bowling.model.Party
@@ -44,7 +44,7 @@ public class Party {
    * @return A vector of the bowlers in this party
    */
 
-  public Vector getMembers() {
+  public Vector<Bowler> getMembers() {
     return myBowlers;
   }
 }

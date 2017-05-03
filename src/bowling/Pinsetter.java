@@ -115,10 +115,7 @@ public class Pinsetter {
    * @post all subscribers have received pinsetter event with updated state
    * */
   private void sendEvent(int jdpins) {  // send events when our state is changed
-    for (int i = 0; i < subscribers.size(); i++) {
-      ((PinsetterObserver) subscribers.get(i)).receivePinsetterEvent(
-          new PinsetterEvent(pins, foul, throwNumber, jdpins));
-    }
+    subscribers.forEach(subscriber->subscriber.receivePinsetterEvent(new PinsetterEvent(pins, foul, throwNumber, jdpins)));
   }
 
   /** ballThrown()

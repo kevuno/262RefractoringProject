@@ -239,7 +239,7 @@ public class Lane extends Thread implements PinsetterObserver {
           }
         }
       } else if (partyAssigned && gameFinished) {
-        EndGamePrompt egp = new EndGamePrompt(((Bowler) party.getMembers().get(0)).getNickName() + "'s bowling.model.Party");
+        EndGamePrompt egp = new EndGamePrompt(((Bowler) party.getMembers().get(0)).getNickName() + "'s Party");
         int result = egp.getResult();
         egp.destroy();
 
@@ -252,7 +252,7 @@ public class Lane extends Thread implements PinsetterObserver {
 
         } else if (result == 2) {// no, don't want to play another game
           Vector printVector;
-          EndGameReport egr = new EndGameReport(((Bowler) party.getMembers().get(0)).getNickName() + "'s bowling.model.Party", party);
+          EndGameReport egr = new EndGameReport(((Bowler) party.getMembers().get(0)).getNickName() + "'s Party", party);
           printVector = egr.getResult();
           partyAssigned = false;
           Iterator scoreIt = party.getMembers().iterator();
@@ -266,13 +266,12 @@ public class Lane extends Thread implements PinsetterObserver {
             Bowler thisBowler = (Bowler) scoreIt.next();
             ScoreReport sr = new ScoreReport(thisBowler, finalScores[myIndex++], gameNumber);
             sr.sendEmail(thisBowler.getEmail());
-            Iterator printIt = printVector.iterator();
-            while (printIt.hasNext()) {
-              if (thisBowler.getNickName() == printIt.next()) {
+            printVector.forEach(aPrintVector -> {
+              if (thisBowler.getNickName() == aPrintVector) {
                 System.out.println("Printing " + thisBowler.getNickName());
                 sr.sendPrintout();
               }
-            }
+            });
           }
         }
       }
@@ -353,15 +352,14 @@ public class Lane extends Thread implements PinsetterObserver {
    * @post scoring system is initialized
    */
   private void resetScores() {
-    Iterator bowlIt = (party.getMembers()).iterator();
 
-    while (bowlIt.hasNext()) {
+    party.getMembers().forEach(member -> {
       int[] toPut = new int[25];
       for (int i = 0; i != 25; i++) {
         toPut[i] = -1;
       }
-      scores.put(bowlIt.next(), toPut);
-    }
+      scores.put(member, toPut);
+    });
 
 
     gameFinished = false;
@@ -569,11 +567,7 @@ public class Lane extends Thread implements PinsetterObserver {
 
   public void publish(LaneEvent event) {
     if (subscribers.size() > 0) {
-      Iterator eventIterator = subscribers.iterator();
-
-      while (eventIterator.hasNext()) {
-        ((LaneObserver) eventIterator.next()).receiveLaneEvent(event);
-      }
+      subscribers.forEach(subscriber->subscriber.receiveLaneEvent(event));
     }
   }
 

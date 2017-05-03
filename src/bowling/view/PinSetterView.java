@@ -191,7 +191,7 @@ public class PinSetterView implements PinsetterObserver {
       JLabel tempPin = new JLabel();
       for (int c = 0; c < 10; c++) {
         boolean pin = pe.pinKnockedDown(c);
-        tempPin = (JLabel) pinVect.get(c);
+        tempPin = pinVect.get(c);
         if (pin) {
           tempPin.setForeground(Color.lightGray);
         }
@@ -202,7 +202,7 @@ public class PinSetterView implements PinsetterObserver {
     }
     if (pe.pinsDownOnThisThrow() == -1) {
       for (int i = 0; i != 10; i++) {
-        ((JLabel) pinVect.get(i)).setForeground(Color.black);
+        pinVect.get(i).setForeground(Color.black);
       }
       secondRoll.setBackground(Color.black);
     }

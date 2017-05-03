@@ -42,7 +42,6 @@ package bowling;/* bowling.ControlDesk.java
 import bowling.model.Bowler;
 import bowling.model.Party;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -117,8 +116,6 @@ public class ControlDesk extends Thread {
 
       patron = BowlerFile.getBowlerInfo(nickName);
 
-    } catch (FileNotFoundException e) {
-      System.err.println("Error..." + e);
     } catch (IOException e) {
       System.err.println("Error..." + e);
     }
@@ -159,12 +156,10 @@ public class ControlDesk extends Thread {
    *
    */
 
-  public void addPartyQueue(Vector partyNicks) {
+  public void addPartyQueue(Vector<String> partyNicks) {
     Vector<Bowler> partyBowlers = new Vector<>();
-    for (int i = 0; i < partyNicks.size(); i++) {
-      Bowler newBowler = registerPatron(((String) partyNicks.get(i)));
-      partyBowlers.add(newBowler);
-    }
+    partyNicks.forEach(partyNick -> partyBowlers.add(registerPatron(partyNick)));
+
     Party newParty = new Party(partyBowlers);
     partyQueue.add(newParty);
     publish(new ControlDeskEvent(getPartyQueue()));
@@ -183,7 +178,7 @@ public class ControlDesk extends Thread {
       String nextParty =
           ((Bowler) (((Party) partyQueue.asVector().get(i)).getMembers())
               .get(0))
-              .getNickName() + "'s bowling.model.Party";
+              .getNickName() + "'s Party";
       displayPartyQueue.addElement(nextParty);
     }
     return displayPartyQueue;
@@ -219,14 +214,7 @@ public class ControlDesk extends Thread {
    */
 
   public void publish(ControlDeskEvent event) {
-    Iterator eventIterator = subscribers.iterator();
-    while (eventIterator.hasNext()) {
-      (
-          (ControlDeskObserver) eventIterator
-              .next())
-          .receiveControlDeskEvent(
-              event);
-    }
+    subscribers.forEach(subscriber->subscriber.receiveControlDeskEvent(event));
   }
 
   /**
