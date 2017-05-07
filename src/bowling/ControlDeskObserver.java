@@ -1,4 +1,6 @@
-/* ControlDeskObserver.java
+package bowling;
+
+/* bowling.ControlDeskObserver.java
  *
  *  Version
  *  $Id$
@@ -10,11 +12,10 @@
 
 /**
  * Interface for classes that observe control desk events
- *
  */
 
 public interface ControlDeskObserver {
 
-	void receiveControlDeskEvent(ControlDeskEvent ce);
+  void receiveControlDeskEvent(ControlDeskEvent ce);
 
 }
