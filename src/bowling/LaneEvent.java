@@ -31,7 +31,7 @@ import bowling.model.Party;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class LaneEvent implements Event{
+public class LaneEvent implements Event {
 
   int ball;
   Bowler bowler;
