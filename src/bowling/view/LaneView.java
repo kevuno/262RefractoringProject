@@ -1,4 +1,6 @@
-package bowling.view;/*
+package bowling.view;
+
+/**
  *  constructs a prototype bowling.Lane View
  *
  */
@@ -128,10 +130,11 @@ public class LaneView implements LaneObserver, ActionListener {
     if (lane.isPartyAssigned()) {
       int numBowlers = le.getParty().getMembers().size();
       while (!initDone) {
-        //System.out.println("chillin' here.");
         try {
           Thread.sleep(1);
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
+          e.printStackTrace();
         }
       }
 
@@ -145,8 +148,6 @@ public class LaneView implements LaneObserver, ActionListener {
         // Button Panel
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
-
-        Insets buttonMargin = new Insets(4, 4, 4, 4);
 
         maintenance = new JButton("Maintenance Call");
         JPanel maintenancePanel = new JPanel();

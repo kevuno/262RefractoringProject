@@ -1,4 +1,6 @@
-package bowling.view;/*
+package bowling.view;
+
+/*
  * bowling.view.PinSetterView/.java
  *
  * Version:
@@ -167,12 +169,6 @@ public class PinSetterView implements PinsetterObserver {
     cpanel.add(pins, BorderLayout.CENTER);
 
     frame.pack();
-
-//	frame.show();
-  }
-
-  public static void main(String args[]) {
-    PinSetterView pg = new PinSetterView(1);
   }
 
   /**
@@ -188,7 +184,7 @@ public class PinSetterView implements PinsetterObserver {
 
   public void receivePinsetterEvent(PinsetterEvent pe) {
     if (!(pe.isFoulCommited())) {
-      JLabel tempPin = new JLabel();
+      JLabel tempPin;
       for (int c = 0; c < 10; c++) {
         boolean pin = pe.pinKnockedDown(c);
         tempPin = pinVect.get(c);

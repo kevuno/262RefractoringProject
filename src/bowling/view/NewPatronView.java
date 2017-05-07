@@ -1,4 +1,6 @@
-package bowling.view;/* bowling.view.AddPartyView.java
+package bowling.view;
+
+/* bowling.view.AddPartyView.java
  *
  *  Version
  *  $Id$
@@ -74,8 +76,6 @@ public class NewPatronView implements ActionListener {
     // Button Panel
     JPanel buttonPanel = new JPanel();
     buttonPanel.setLayout(new GridLayout(4, 1));
-
-    Insets buttonMargin = new Insets(4, 4, 4, 4);
 
     finished = new JButton("Add Patron");
     JPanel finishedPanel = new JPanel();

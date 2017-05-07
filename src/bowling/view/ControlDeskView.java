@@ -1,4 +1,6 @@
-package bowling.view;/* bowling.view.ControlDeskView.java
+package bowling.view;
+
+/* bowling.view.ControlDeskView.java
  *
  *  Version:
  *			$Id$
@@ -71,7 +73,6 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
     assignPanel.setLayout(new FlowLayout());
     assign.addActionListener(this);
     assignPanel.add(assign);
-//		controlsPanel.add(assignPanel);
 
     finished = new JButton("Finished");
     JPanel finishedPanel = new JPanel();
@@ -113,7 +114,6 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
     partyPane.setVerticalScrollBarPolicy(
         JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
     partyPanel.add(partyPane);
-    //		partyPanel.add(partyList);
 
     // Clean up main panel
     colPanel.add(controlsPanel, "East");
@@ -124,7 +124,7 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
 
     win.pack();
 
-		/* Close program when this window closes */
+    /* Close program when this window closes */
     win.addWindowListener(new WindowAdapter() {
       public void windowClosing(WindowEvent e) {
         System.exit(0);

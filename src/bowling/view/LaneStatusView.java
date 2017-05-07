@@ -1,4 +1,6 @@
-package bowling.view; /**
+package bowling.view;
+
+/**
  * To change this generated comment edit the template variable "typecomment":
  * Window>Preferences>Java>Templates.
  * To enable and disable the creation of type comments go to
@@ -136,7 +138,5 @@ public class LaneStatusView implements ActionListener, LaneObserver, PinsetterOb
 
   public void receivePinsetterEvent(PinsetterEvent pe) {
     pinsDown.setText((new Integer(pe.totalPinsDown())).toString());
-//		foul.setText( ( new Boolean(pe.isFoulCommited()) ).toString() );
-
   }
 }

@@ -1,4 +1,6 @@
-package bowling.view;/* bowling.view.AddPartyView.java
+package bowling.view;
+
+/* bowling.view.AddPartyView.java
  *
  *  Version:
  * 		 $Id$
@@ -81,7 +83,6 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
     partyList.setVisibleRowCount(5);
     partyList.addListSelectionListener(this);
     JScrollPane partyPane = new JScrollPane(partyList);
-    //        partyPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
     partyPanel.add(partyPane);
 
     // bowling.model.Bowler Database
