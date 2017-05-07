@@ -1,4 +1,6 @@
-package bowling.model;/*
+package bowling.model;
+
+/*
  * bowling.model.Party.java
  *
  * Version:

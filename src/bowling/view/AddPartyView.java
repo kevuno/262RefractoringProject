@@ -49,9 +49,10 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
 
   private JFrame win;
   private JButton addPatron, newPatron, remPatron, finished;
-  private JList partyList, allBowlers;
+  private JList partyList;
+  private JList<Bowler> allBowlers;
   private Vector<String> party;
-  private Vector bowlerdb;
+  private Vector<Bowler> bowlerdb;
 
   private ControlDeskView controlDesk;
 
@@ -91,12 +92,12 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
     bowlerPanel.setBorder(new TitledBorder("Bowler Database"));
 
     try {
-      bowlerdb = new Vector(BowlerFile.getBowlers());
+      bowlerdb = new Vector<Bowler>(BowlerFile.getBowlers());
     } catch (Exception e) {
       System.err.println("File Error");
-      bowlerdb = new Vector();
+      bowlerdb = new Vector<>();
     }
-    allBowlers = new JList(bowlerdb);
+    allBowlers = new JList<>(bowlerdb);
     allBowlers.setVisibleRowCount(8);
     allBowlers.setFixedCellWidth(120);
     JScrollPane bowlerPane = new JScrollPane(allBowlers);
