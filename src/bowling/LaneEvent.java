@@ -28,9 +28,10 @@ package bowling;
 import bowling.model.Bowler;
 import bowling.model.Party;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
-public class LaneEvent {
+public class LaneEvent implements Event{
 
   int ball;
   Bowler bowler;
@@ -86,4 +87,18 @@ public class LaneEvent {
     return bowler;
   }
 
+  @Override
+  public ArrayList<Object> getEventData() {
+    ArrayList<Object> data = new ArrayList<>();
+    data.add(ball);
+    data.add(bowler);
+    data.add(cumulScore);
+    data.add(score);
+    data.add(index);
+    data.add(frameNum);
+    data.add(curScores);
+    data.add(mechProb);
+    data.add(p);
+    return data;
+  }
 }

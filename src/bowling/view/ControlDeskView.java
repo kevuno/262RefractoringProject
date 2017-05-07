@@ -15,6 +15,7 @@ package bowling.view;
  */
 
 import bowling.*;
+import bowling.Event;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -27,7 +28,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Vector;
 
-public class ControlDeskView implements ActionListener, ControlDeskObserver {
+public class ControlDeskView implements ActionListener, Observer {
 
   private JButton addParty, finished, assign;
   private JFrame win;
@@ -173,11 +174,12 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
   /**
    * Receive a broadcast from a bowling.ControlDesk
    *
-   * @param ce  the bowling.ControlDeskEvent that triggered the handler
+   * @param e  the bowling.ControlDeskEvent that triggered the handler
    *
    */
-
-  public void receiveControlDeskEvent(ControlDeskEvent ce) {
-    partyList.setListData((ce.getPartyQueue()));
+  @Override
+  public void receiveEvent(Event e) {
+    Vector<String> v = (Vector<String>) e.getEventData().get(0);
+    partyList.setListData(v);
   }
 }
