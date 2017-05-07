@@ -1,6 +1,4 @@
-package bowling; /**
- *
- */
+package bowling;
 
 import java.awt.*;
 import java.awt.font.FontRenderContext;

@@ -1,4 +1,6 @@
-package bowling;/* bowling.ControlDesk.java
+package bowling;
+
+/* bowling.ControlDesk.java
  *
  *  Version:
  *  		$Id$
@@ -88,12 +90,12 @@ public class ControlDesk extends Thread {
    */
   public void run() {
     while (true) {
-
       assignLane();
-
       try {
         sleep(250);
-      } catch (Exception e) {
+      }
+      catch (Exception e) {
+        e.printStackTrace();
       }
     }
   }
@@ -176,7 +178,7 @@ public class ControlDesk extends Thread {
     Vector<String> displayPartyQueue = new Vector<>();
     for (int i = 0; i < (partyQueue.asVector()).size(); i++) {
       String nextParty =
-          ((Bowler) (((Party) partyQueue.asVector().get(i)).getMembers())
+          ((((Party) partyQueue.asVector().get(i)).getMembers())
               .get(0))
               .getNickName() + "'s Party";
       displayPartyQueue.addElement(nextParty);

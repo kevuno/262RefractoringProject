@@ -1,4 +1,6 @@
-package bowling;/* bowling.ControlDeskEvent.java
+package bowling;
+
+/* bowling.ControlDeskEvent.java
  *
  *  Version:
  *  		$Id$

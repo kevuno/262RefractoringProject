@@ -1,4 +1,6 @@
-package bowling; /**
+package bowling;
+
+/**
  * To change this generated comment edit the template variable "typecomment":
  * Window>Preferences>Java>Templates.
  * To enable and disable the creation of type comments go to
@@ -40,8 +42,6 @@ public class EndGamePrompt implements ActionListener {
     // Button Panel
     JPanel buttonPanel = new JPanel();
     buttonPanel.setLayout(new GridLayout(1, 2));
-
-    Insets buttonMargin = new Insets(4, 4, 4, 4);
 
     yesButton = new JButton("Yes");
     JPanel yesButtonPanel = new JPanel();

@@ -1,4 +1,6 @@
-package bowling;/* $Id$
+package bowling;
+
+/* $Id$
  *
  * Revisions:
  *   $Log: bowling.LaneObserver.java,v $

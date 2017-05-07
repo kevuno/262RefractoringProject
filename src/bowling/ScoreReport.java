@@ -1,7 +1,8 @@
-package bowling; /**
+package bowling;
+
+/**
  * SMTP implementation based on code by R�al Gagnon mailto:real@rgagnon.com
  */
-
 
 import bowling.model.Bowler;
 import bowling.model.Score;
@@ -61,8 +62,6 @@ public class ScoreReport {
           new BufferedWriter(
               new OutputStreamWriter(s.getOutputStream(), "8859_1"));
 
-      String boundary = "DataSeparatorString";
-
       // here you are supposed to send your username
       sendln(in, out, "HELLO world");
       sendln(in, out, "MAIL FROM: <abc1234@rit.edu>");
@@ -103,9 +102,6 @@ public class ScoreReport {
     try {
       out.write(s + "\r\n");
       out.flush();
-      // System.out.println(s);
-      s = in.readLine();
-      // System.out.println(s);
     } catch (Exception e) {
       e.printStackTrace();
     }

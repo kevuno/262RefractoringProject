@@ -1,4 +1,6 @@
-package bowling;/* bowling.BowlerFile.java
+package bowling;
+
+/* bowling.BowlerFile.java
  *
  *  Version:
  *  		$Id$

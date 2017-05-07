@@ -1,4 +1,6 @@
-package bowling;/*  $Id$
+package bowling;
+
+/*  $Id$
  *
  *  Revisions:
  *    $Log: bowling.PinsetterEvent.java,v $
@@ -15,7 +17,7 @@ package bowling;/*  $Id$
 public class PinsetterEvent {
 
   private boolean[] pinsStillStanding;
-  private boolean foulCommited;
+  private boolean foulCommitted;
   private int throwNumber;
   private int pinsDownThisThrow;
 
@@ -34,7 +36,7 @@ public class PinsetterEvent {
       pinsStillStanding[i] = ps[i];
     }
 
-    foulCommited = foul;
+    foulCommitted = foul;
     throwNumber = tn;
     this.pinsDownThisThrow = pinsDownThisThrow;
   }
@@ -77,12 +79,12 @@ public class PinsetterEvent {
   }
 
   /**
-   * isFoulCommited()
+   * isFoulCommitted()
    *
-   * @return true if a foul was commited on the lane, false otherwise
+   * @return true if a foul was committed on the lane, false otherwise
    */
-  public boolean isFoulCommited() {
-    return foulCommited;
+  public boolean isFoulCommitted() {
+    return foulCommitted;
   }
 
   /**
