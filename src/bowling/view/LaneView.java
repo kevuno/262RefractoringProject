@@ -197,7 +197,5 @@ public class LaneView implements Observer, ActionListener {
       }
     }
   }
-  public void receiveLaneEvent(LaneEvent le) {
 
-  }
 }

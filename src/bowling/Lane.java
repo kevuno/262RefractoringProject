@@ -285,18 +285,6 @@ public class Lane extends Thread implements Observer, Observable {
     }
   }
 
-  /**
-   * receivePinsetterEvent()
-   * <p>
-   * receives the thrown event from the pinsetter
-   *
-   * @param pe The pinsetter event that has been received.
-   * @pre none
-   * @post the event has been acted upon if desired
-   */
-  public void receivePinsetterEvent(PinsetterEvent pe) {
-
-  }
 
   @Override
   public void receiveEvent(Event e) {

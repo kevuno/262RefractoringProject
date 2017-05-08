@@ -149,7 +149,7 @@ public class ControlDeskView implements ActionListener, Observer {
 
   public void actionPerformed(ActionEvent e) {
     if (e.getSource().equals(addParty)) {
-      AddPartyView addPartyWin = new AddPartyView(this, maxMembers);
+      new AddPartyView(this, maxMembers);
     }
     if (e.getSource().equals(assign)) {
       controlDesk.assignLane();

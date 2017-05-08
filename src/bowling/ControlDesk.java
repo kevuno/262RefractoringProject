@@ -144,12 +144,7 @@ public class ControlDesk extends Thread implements Observable {
     publish(new ControlDeskEvent(getPartyQueue()));
   }
 
-  /**
-   */
 
-  public void viewScores(Lane ln) {
-    // TODO: attach a LaneScoreView object to that lane
-  }
 
   /**
    * Creates a party from a Vector of nickNames and adds them to the wait queue.

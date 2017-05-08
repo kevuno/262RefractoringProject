@@ -40,9 +40,7 @@ public class ControlDeskEvent implements Event {
    *
    */
 
-  public Vector getPartyQueue() {
-    return partyQueue;
-  }
+
 
   @Override
   public ArrayList<Object> getEventData() {

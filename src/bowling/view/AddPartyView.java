@@ -174,7 +174,7 @@ public class AddPartyView implements ActionListener, ListSelectionListener {
       }
     }
     if (e.getSource().equals(newPatron)) {
-      NewPatronView newPatron = new NewPatronView(this);
+      new NewPatronView(this);
     }
     if (e.getSource().equals(finished)) {
       if (party != null && party.size() > 0) {
