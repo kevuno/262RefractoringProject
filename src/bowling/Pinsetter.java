@@ -78,7 +78,7 @@ public class Pinsetter {
 
   private Random rnd;
   //private Vector subscribers;
-  private Vector<PinsetterObserver> subscribers;
+  private Vector<Observer> subscribers;
 
   private boolean[] pins;
   /* 0-9 of state of pine, true for standing,
@@ -117,7 +117,7 @@ public class Pinsetter {
    * @post all subscribers have received pinsetter event with updated state
    * */
   private void sendEvent(int jdpins) {  // send events when our state is changed
-    subscribers.forEach(subscriber->subscriber.receivePinsetterEvent(new PinsetterEvent(pins, foul, throwNumber, jdpins)));
+    subscribers.forEach(subscriber->subscriber.receiveEvent(new PinsetterEvent(pins, foul, throwNumber, jdpins)));
   }
 
   /** ballThrown()
@@ -198,7 +198,7 @@ public class Pinsetter {
    * @pre none
    * @post the subscriber object will receive events when their generated
    */
-  public void subscribe(PinsetterObserver subscriber) {
+  public void subscribe(Observer subscriber) {
     subscribers.add(subscriber);
   }
 }

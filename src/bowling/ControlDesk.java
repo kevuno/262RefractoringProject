@@ -61,7 +61,7 @@ public class ControlDesk extends Thread {
   private int numLanes;
 
   /** The collection of subscribers */
-  private Vector<ControlDeskObserver> subscribers;
+  private Vector<Observer> subscribers;
 
   /**
    * Constructor for the bowling.ControlDesk class
@@ -204,7 +204,7 @@ public class ControlDesk extends Thread {
    *
    */
 
-  public void subscribe(ControlDeskObserver adding) {
+  public void subscribe(Observer adding) {
     subscribers.add(adding);
   }
 
@@ -215,8 +215,8 @@ public class ControlDesk extends Thread {
    *
    */
 
-  public void publish(ControlDeskEvent event) {
-    subscribers.forEach(subscriber->subscriber.receiveControlDeskEvent(event));
+  public void publish(Event event) {
+    subscribers.forEach(subscriber->subscriber.receiveEvent(event));
   }
 
   /**

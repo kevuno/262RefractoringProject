@@ -14,7 +14,9 @@ package bowling;
  *
  */
 
-public class PinsetterEvent {
+import java.util.ArrayList;
+
+public class PinsetterEvent implements Event {
 
   private boolean[] pinsStillStanding;
   private boolean foulCommitted;
@@ -94,5 +96,15 @@ public class PinsetterEvent {
    */
   public int getThrowNumber() {
     return throwNumber;
+  }
+
+  @Override
+  public ArrayList<Object> getEventData() {
+    ArrayList<Object> data = new ArrayList<>();
+    data.add(pinsStillStanding);
+    data.add(foulCommitted);
+    data.add(throwNumber);
+    data.add(pinsDownThisThrow);
+    return data;
   }
 }
