@@ -3,6 +3,9 @@ package bowling;
 import bowling.model.Alley;
 import bowling.view.ControlDeskView;
 
+/**
+ * Main class that the program centers on
+ */
 public class drive {
 
   public static void main(String[] args) {

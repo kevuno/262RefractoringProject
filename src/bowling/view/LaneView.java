@@ -34,6 +34,11 @@ public class LaneView implements LaneObserver, ActionListener {
   Lane lane;
   private boolean initDone = true;
 
+  /**
+   * Constructs the LaneView
+   * @param lane THe lane itself
+   * @param laneNum Number of the lane in the alley
+     */
   public LaneView(Lane lane, int laneNum) {
 
     this.lane = lane;
@@ -52,14 +57,25 @@ public class LaneView implements LaneObserver, ActionListener {
     cpanel.add(new JPanel());
   }
 
+  /**
+   * Reveals the view
+   */
   public void show() {
     frame.setVisible(true);
   }
 
+  /**
+   * Hides the view
+   */
   public void hide() {
     frame.setVisible(false);
   }
 
+  /**
+   * Creates the frames for the game
+   * @param party The party playing the game
+   * @return A JPanel illustrating the frames
+     */
   private JPanel makeFrame(Party party) {
 
     initDone = false;
@@ -126,6 +142,10 @@ public class LaneView implements LaneObserver, ActionListener {
     return panel;
   }
 
+  /**
+   * Accepts a lane event
+   * @param le A lane event
+     */
   public void receiveLaneEvent(LaneEvent le) {
     if (lane.isPartyAssigned()) {
       int numBowlers = le.getParty().getMembers().size();
@@ -189,6 +209,10 @@ public class LaneView implements LaneObserver, ActionListener {
     }
   }
 
+  /**
+   * Takes in an ActionEvent such as clicking on a button
+   * @param e The ActionEvent
+     */
   public void actionPerformed(ActionEvent e) {
     if (e.getSource().equals(maintenance)) {
       lane.pauseGame();
