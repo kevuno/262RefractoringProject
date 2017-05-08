@@ -20,6 +20,7 @@ public class ScoreReport {
 
   private StringBuilder content;
 
+  //A score report is created upon the completion of a game
   public ScoreReport(Bowler bowler, int[] scores, int games) {
     String nick = bowler.getNickName();
     String full = bowler.getFullName();
@@ -30,6 +31,7 @@ public class ScoreReport {
       System.err.println("Error: " + e);
     }
 
+    //build content
     content = new StringBuilder();
     content.append("--Lucky Strike Bowling Alley Score Report--\n");
     content.append("\n");
@@ -52,6 +54,8 @@ public class ScoreReport {
     content.append("Thank you for your continuing patronage.");
   }
 
+  //sendEmail allows bowlers to receive score reports directly to their email
+  //This service is automatic
   public void sendEmail(String recipient) {
     try {
       Socket s = new Socket("osfmail.rit.edu", 25);
@@ -82,6 +86,7 @@ public class ScoreReport {
     }
   }
 
+  //This method allows the program to connect to a print and print this score report
   public void sendPrintout() {
     PrinterJob job = PrinterJob.getPrinterJob();
 
@@ -98,6 +103,7 @@ public class ScoreReport {
     }
   }
 
+  //This sends a string to an output stream
   public void sendln(BufferedReader in, BufferedWriter out, String s) {
     try {
       out.write(s + "\r\n");
@@ -107,6 +113,7 @@ public class ScoreReport {
     }
   }
 
+  //Same method as before but prints to System.out rather than a buffered writer
   public void sendln(BufferedWriter out, String s) {
     try {
       out.write(s + "\r\n");

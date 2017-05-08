@@ -95,6 +95,7 @@ public class LaneStatusView implements ActionListener, Observer {
   }
 
   public void actionPerformed(ActionEvent e) {
+    //New party is assigned
     if (lane.isPartyAssigned()) {
       if (e.getSource().equals(viewPinSetter)) {
         if (!psShowing) {
@@ -105,6 +106,7 @@ public class LaneStatusView implements ActionListener, Observer {
           psShowing = false;
         }
       }
+      //A new lane view is requested
       if (e.getSource().equals(viewLane)) {
         if (!laneShowing) {
           lv.show();
@@ -115,7 +117,7 @@ public class LaneStatusView implements ActionListener, Observer {
         }
       }
     }
-
+    //A maintenance request was made
     if (e.getSource().equals(maintenance)) {
       if (lane.isPartyAssigned()) {
         lane.unPauseGame();
@@ -125,9 +127,11 @@ public class LaneStatusView implements ActionListener, Observer {
   }
   public void receiveLaneEvent(LaneEvent le) {
     curBowler.setText((le.getBowler()).getNickName());
+    //Mechanical problem from lane
     if (le.isMechanicalProblem()) {
       maintenance.setBackground(Color.RED);
     }
+    //A lane has finished playing
     if (!lane.isPartyAssigned()) {
       viewLane.setEnabled(false);
       viewPinSetter.setEnabled(false);
