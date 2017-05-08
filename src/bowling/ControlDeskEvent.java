@@ -14,9 +14,10 @@ package bowling;
  * Class that represents control desk event
  */
 
+import java.util.ArrayList;
 import java.util.Vector;
 
-public class ControlDeskEvent {
+public class ControlDeskEvent implements Event {
 
   /** A representation of the wait queue, containing party names */
   private Vector partyQueue;
@@ -39,7 +40,12 @@ public class ControlDeskEvent {
    *
    */
 
-  public Vector getPartyQueue() {
-    return partyQueue;
+
+
+  @Override
+  public ArrayList<Object> getEventData() {
+    ArrayList<Object> data = new ArrayList<>();
+    data.add(partyQueue);
+    return data;
   }
 }

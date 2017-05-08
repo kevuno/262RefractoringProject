@@ -49,7 +49,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Vector;
 
-public class ControlDesk extends Thread {
+public class ControlDesk extends Thread implements Observable {
 
   /** The collection of Lanes */
   private HashSet<Lane> lanes;
@@ -61,7 +61,7 @@ public class ControlDesk extends Thread {
   private int numLanes;
 
   /** The collection of subscribers */
-  private Vector<ControlDeskObserver> subscribers;
+  private Vector<Observer> subscribers;
 
   /**
    * Constructor for the bowling.ControlDesk class
@@ -144,12 +144,7 @@ public class ControlDesk extends Thread {
     publish(new ControlDeskEvent(getPartyQueue()));
   }
 
-  /**
-   */
 
-  public void viewScores(Lane ln) {
-    // TODO: attach a LaneScoreView object to that lane
-  }
 
   /**
    * Creates a party from a Vector of nickNames and adds them to the wait queue.
@@ -197,26 +192,14 @@ public class ControlDesk extends Thread {
     return numLanes;
   }
 
-  /**
-   * Allows objects to subscribe as observers
-   *
-   * @param adding  the bowling.ControlDeskObserver that will be subscribed
-   *
-   */
-
-  public void subscribe(ControlDeskObserver adding) {
+  @Override
+  public void subscribe(Observer adding) {
     subscribers.add(adding);
   }
 
-  /**
-   * Broadcast an event to subscribing objects.
-   *
-   * @param event  the bowling.ControlDeskEvent to broadcast
-   *
-   */
-
-  public void publish(ControlDeskEvent event) {
-    subscribers.forEach(subscriber->subscriber.receiveControlDeskEvent(event));
+  @Override
+  public void publish(Event event) {
+    subscribers.forEach(subscriber->subscriber.receiveEvent(event));
   }
 
   /**

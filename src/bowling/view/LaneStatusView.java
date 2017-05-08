@@ -8,13 +8,14 @@ package bowling.view;
  */
 
 import bowling.*;
+import bowling.Event;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LaneStatusView implements ActionListener, LaneObserver, PinsetterObserver {
+public class LaneStatusView implements ActionListener, Observer {
 
   int laneNum;
   boolean laneShowing;
@@ -138,5 +139,17 @@ public class LaneStatusView implements ActionListener, LaneObserver, PinsetterOb
 
   public void receivePinsetterEvent(PinsetterEvent pe) {
     pinsDown.setText((new Integer(pe.totalPinsDown())).toString());
+  }
+
+  @Override
+  /**
+   * Receives a generic event and it calls the designed Event type receiver method
+   */
+  public void receiveEvent(Event e) {
+    if(e instanceof LaneEvent){
+      receiveLaneEvent((LaneEvent) e);
+    }else if(e instanceof PinsetterEvent){
+      receivePinsetterEvent((PinsetterEvent) e);
+    }
   }
 }

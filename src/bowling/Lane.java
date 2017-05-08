@@ -137,11 +137,11 @@ import bowling.model.Party;
 
 import java.util.*;
 
-public class Lane extends Thread implements PinsetterObserver {
+public class Lane extends Thread implements Observer, Observable {
   private Party party;
   private Pinsetter setter;
   private HashMap<Object, int[]> scores;
-  private Vector<LaneObserver> subscribers;
+  private Vector<Observer> subscribers;
 
   private boolean gameIsHalted;
 
@@ -285,17 +285,10 @@ public class Lane extends Thread implements PinsetterObserver {
     }
   }
 
-  /**
-   * receivePinsetterEvent()
-   * <p>
-   * receives the thrown event from the pinsetter
-   *
-   * @param pe The pinsetter event that has been received.
-   * @pre none
-   * @post the event has been acted upon if desired
-   */
-  public void receivePinsetterEvent(PinsetterEvent pe) {
 
+  @Override
+  public void receiveEvent(Event e) {
+    PinsetterEvent pe = (PinsetterEvent) e;
     if (pe.pinsDownOnThisThrow() >= 0) {      // this is a real throw
       markScore(currentThrower, frameNumber + 1, pe.getThrowNumber(), pe.pinsDownOnThisThrow());
 
@@ -542,29 +535,15 @@ public class Lane extends Thread implements PinsetterObserver {
     return partyAssigned;
   }
 
-  /**
-   * subscribe
-   * <p>
-   * Method that will add a subscriber
-   *
-   * @param adding Observer that is to be added
-   */
-
-  public void subscribe(LaneObserver adding) {
+  @Override
+  public void subscribe(Observer adding) {
     subscribers.add(adding);
   }
 
-  /**
-   * publish
-   * <p>
-   * Method that publishes an event to subscribers
-   *
-   * @param event Event that is to be published
-   */
-
-  public void publish(LaneEvent event) {
+  @Override
+  public void publish(Event event) {
     if (subscribers.size() > 0) {
-      subscribers.forEach(subscriber->subscriber.receiveLaneEvent(event));
+      subscribers.forEach(subscriber->subscriber.receiveEvent(event));
     }
   }
 
@@ -593,4 +572,6 @@ public class Lane extends Thread implements PinsetterObserver {
     gameIsHalted = false;
     publish(lanePublish());
   }
+
+
 }

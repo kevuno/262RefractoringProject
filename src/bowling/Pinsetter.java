@@ -74,11 +74,11 @@ package bowling;
 import java.util.Random;
 import java.util.Vector;
 
-public class Pinsetter {
+public class Pinsetter implements Observable {
 
   private Random rnd;
   //private Vector subscribers;
-  private Vector<PinsetterObserver> subscribers;
+  private Vector<Observer> subscribers;
 
   private boolean[] pins;
   /* 0-9 of state of pine, true for standing,
@@ -109,15 +109,16 @@ public class Pinsetter {
     reset();
   }
 
-  /** sendEvent()
+  /** publish()
    *
    * Sends pinsetter events to all subscribers
    *
    * @pre none
    * @post all subscribers have received pinsetter event with updated state
    * */
-  private void sendEvent(int jdpins) {  // send events when our state is changed
-    subscribers.forEach(subscriber->subscriber.receivePinsetterEvent(new PinsetterEvent(pins, foul, throwNumber, jdpins)));
+  @Override
+  public void publish(Event event) {  // send events when our state is changed
+    subscribers.forEach(subscriber->subscriber.receiveEvent(event));
   }
 
   /** ballThrown()
@@ -152,7 +153,7 @@ public class Pinsetter {
       e.printStackTrace();
     }
 
-    sendEvent(count);
+    publish(new PinsetterEvent(pins, foul, throwNumber, count));
 
     throwNumber++;
   }
@@ -175,7 +176,7 @@ public class Pinsetter {
       e.printStackTrace();
     }
 
-    sendEvent(-1);
+    publish(new PinsetterEvent(pins, foul, throwNumber, -1));
   }
 
   /** resetPins()
@@ -191,14 +192,8 @@ public class Pinsetter {
     }
   }
 
-  /** subscribe()
-   *
-   * subscribe objects to send events to
-   *
-   * @pre none
-   * @post the subscriber object will receive events when their generated
-   */
-  public void subscribe(PinsetterObserver subscriber) {
+  @Override
+  public void subscribe(Observer subscriber) {
     subscribers.add(subscriber);
   }
 }

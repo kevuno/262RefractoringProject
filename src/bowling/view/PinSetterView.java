@@ -14,15 +14,15 @@ package bowling.view;
  * constructs a prototype PinSetter GUI
  */
 
-import bowling.PinsetterEvent;
-import bowling.PinsetterObserver;
+import bowling.*;
+import bowling.Event;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Vector;
 
 
-public class PinSetterView implements PinsetterObserver {
+public class PinSetterView implements Observer {
 
 
   private Vector<JLabel> pinVect = new Vector<>();
@@ -171,6 +171,16 @@ public class PinSetterView implements PinsetterObserver {
     frame.pack();
   }
 
+
+
+  public void show() {
+    frame.setVisible(true);
+  }
+
+  public void hide() {
+    frame.setVisible(false);
+  }
+
   /**
    * This method receives a pinsetter event.  The event is the current
    * state of the PinSetter and the method changes how the GUI looks
@@ -178,11 +188,11 @@ public class PinSetterView implements PinsetterObserver {
    * is grayed out.  When it is the second roll, it is indicated by the
    * appearance of a second yellow box at the top.
    *
-   * @param pe    The state of the pinsetter is sent in this event.
+   * @param e    The state of the pinsetter is sent in this event.
    */
-
-
-  public void receivePinsetterEvent(PinsetterEvent pe) {
+  @Override
+  public void receiveEvent(Event e) {
+    PinsetterEvent pe = (PinsetterEvent) e;
     if (!(pe.isFoulCommitted())) {
       JLabel tempPin;
       for (int c = 0; c < 10; c++) {
@@ -202,13 +212,5 @@ public class PinSetterView implements PinsetterObserver {
       }
       secondRoll.setBackground(Color.black);
     }
-  }
-
-  public void show() {
-    frame.setVisible(true);
-  }
-
-  public void hide() {
-    frame.setVisible(false);
   }
 }

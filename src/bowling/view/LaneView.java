@@ -5,9 +5,8 @@ package bowling.view;
  *
  */
 
-import bowling.Lane;
-import bowling.LaneEvent;
-import bowling.LaneObserver;
+import bowling.*;
+import bowling.Event;
 import bowling.model.Bowler;
 import bowling.model.Party;
 
@@ -19,7 +18,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Vector;
 
-public class LaneView implements LaneObserver, ActionListener {
+public class LaneView implements Observer, ActionListener {
 
   JFrame frame;
   Container cpanel;
@@ -147,20 +146,31 @@ public class LaneView implements LaneObserver, ActionListener {
    * @param le A lane event
      */
   public void receiveLaneEvent(LaneEvent le) {
+
+
+  public void actionPerformed(ActionEvent e) {
+    if (e.getSource().equals(maintenance)) {
+      lane.pauseGame();
+    }
+  }
+
+  @Override
+  public void receiveEvent(Event e) {
+    LaneEvent le = (LaneEvent) e;
     if (lane.isPartyAssigned()) {
       int numBowlers = le.getParty().getMembers().size();
       while (!initDone) {
         try {
           Thread.sleep(1);
         }
-        catch (Exception e) {
-          e.printStackTrace();
+        catch (Exception ex) {
+          ex.printStackTrace();
         }
       }
 
       if (le.getFrameNum() == 1
-          && le.getBall() == 0
-          && le.getIndex() == 0) {
+              && le.getBall() == 0
+              && le.getIndex() == 0) {
         System.out.println("Making the frame.");
         cpanel.removeAll();
         cpanel.add(makeFrame(le.getParty()), "Center");
@@ -196,7 +206,7 @@ public class LaneView implements LaneObserver, ActionListener {
             if (((int[]) (le.getScore()).get(bowlers.get(k)))[i] == 10 && (i % 2 == 0 || i == 19)) {
               ballLabel[k][i].setText("X");
             } else if (i > 0 && ((int[]) (le.getScore()).get(bowlers.get(k)))[i] +
-                ((int[]) (le.getScore()).get(bowlers.get(k)))[i - 1] == 10 && i % 2 == 1) {
+                    ((int[]) (le.getScore()).get(bowlers.get(k)))[i - 1] == 10 && i % 2 == 1) {
               ballLabel[k][i].setText("/");
             } else if (((int[]) (le.getScore()).get(bowlers.get(k)))[i] == -2) {
               ballLabel[k][i].setText("F");
