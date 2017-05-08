@@ -141,18 +141,6 @@ public class LaneView implements Observer, ActionListener {
     return panel;
   }
 
-  /**
-   * Accepts a lane event
-   * @param le A lane event
-     */
-  public void receiveLaneEvent(LaneEvent le) {
-
-
-  public void actionPerformed(ActionEvent e) {
-    if (e.getSource().equals(maintenance)) {
-      lane.pauseGame();
-    }
-  }
 
   @Override
   public void receiveEvent(Event e) {

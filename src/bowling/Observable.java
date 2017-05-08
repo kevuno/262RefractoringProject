@@ -1,7 +1,7 @@
 package bowling;
 
 /**
- * Created by kevin
+ * Created by Kevin and Nik
  */
 interface Observable {
 
